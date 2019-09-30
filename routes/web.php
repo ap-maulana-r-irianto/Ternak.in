@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/customer', 'PagesControllerCustomer@home');
+Route::get('/admin', 'PagesControllerAdmin@home');
+Route::get('/investor', 'PagesControllerInvestor@home');
