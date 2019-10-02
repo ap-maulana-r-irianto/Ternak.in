@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/customer', 'PagesControllerCustomer@home');
+Route::get('/', 'PagesController@login');
+Route::get('/register', 'PagesController@register');
+Route::get('/peternak', 'PagesControllerPeternak@home');
 Route::get('/admin', 'PagesControllerAdmin@home');
 Route::get('/investor', 'PagesControllerInvestor@home');

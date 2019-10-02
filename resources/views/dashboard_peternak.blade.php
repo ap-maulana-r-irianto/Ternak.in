@@ -1,4 +1,4 @@
-@extends('layouts.template_admin')
+@extends('layouts.template_peternak')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
