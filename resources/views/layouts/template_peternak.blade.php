@@ -97,7 +97,7 @@
           </li>
           <li class="nav-header">TERNAK</li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Kambingku
@@ -106,19 +106,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="{{url('/peternak/carikambingku')}}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Kambingku</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/profile.html" class="nav-link">
+                <a href="{{url('/peternak/tambahkambingku')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Tambah Kambingku</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/e_commerce.html" class="nav-link">
+                <a href="{{url('/peternak/seluruhkambingku')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Kambingku</p>
                 </a>
@@ -126,7 +126,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Investorku
@@ -135,13 +135,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="{{url('/peternak/cariinvestorku')}}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Investorku</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/e_commerce.html" class="nav-link">
+                <a href="{{url('/peternak/seluruhinvestorku')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Investorku</p>
                 </a>
@@ -149,7 +149,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Perm. Investasi
@@ -158,13 +158,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="{{url('/peternak/cariperminvestasi')}}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Perm. Investasi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/e_commerce.html" class="nav-link">
+                <a href="{{url('/peternak/seluruhperminvestasi')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Perm. Investasi</p>
                 </a>
@@ -172,7 +172,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Request Jual 
@@ -181,13 +181,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="{{url('/peternak/carirequestjual')}}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Request Jual</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/profile.html" class="nav-link">
+                <a href="{{url('/peternak/seluruhrequestjual')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Request Jual</p>
                 </a>
@@ -195,7 +195,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Keranjang Ternak

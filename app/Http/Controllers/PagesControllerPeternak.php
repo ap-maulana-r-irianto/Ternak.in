@@ -8,6 +8,6 @@ class PagesControllerPeternak extends Controller
 {
     //
     public function home(){
-    	return view('dashboard_peternak');
+    	return view('peternak.dashboard_peternak');
     }
 }

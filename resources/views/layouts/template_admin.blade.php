@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -52,7 +54,7 @@
            alt="Ternak.in Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Admin</span>
+      <span class="brand-text font-weight-light">TERNAK.IN</span>
     </a>
 
     <!-- Sidebar -->
@@ -73,7 +75,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
+            <a href="{{url('/admin/dashboard')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -97,7 +99,7 @@
           </li>
           <li class="nav-header">TERNAK</li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Peternak
@@ -106,19 +108,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="{{url('/admin/caripeternak')}}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Peternak</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/profile.html" class="nav-link">
+                <a href="{{url('/admin/tambahpeternak')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Tambah Peternak</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/e_commerce.html" class="nav-link">
+                <a href="{{url('/admin/seluruhpeternak')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Peternak</p>
                 </a>
@@ -126,7 +128,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Investor
@@ -135,19 +137,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="{{url('/admin/cariinvestor')}}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Investor</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/profile.html" class="nav-link">
+                <a href="{{url('/admin/tambahinvestor')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Tambah Investor</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/e_commerce.html" class="nav-link">
+                <a href="{{url('/admin/seluruhinvestor')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Investor</p>
                 </a>
@@ -155,7 +157,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Pembeli
@@ -164,19 +166,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="{{url('/admin/caripembeli')}}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Pembeli</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/profile.html" class="nav-link">
+                <a href="{{url('/admin/tambahpembeli')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Tambah Pembeli</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/e_commerce.html" class="nav-link">
+                <a href="{{url('/admin/seluruhpembeli')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Pembeli</p>
                 </a>
@@ -184,7 +186,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Data Transaksi
@@ -193,13 +195,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="{{url('/admin/caritransaksi')}}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Transaksi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/profile.html" class="nav-link">
+                <a href="{{url('/admin/seluruhtransaksi')}}" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Transaksi</p>
                 </a>
@@ -207,7 +209,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Extras
@@ -217,13 +219,13 @@
           </li>
           <li class="nav-header">Rekap Data</li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+            <a href="{{url('/admin/datatransaksiinvestor')}}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Data Transaksi Investor</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+            <a href="{{url('/admin/datatransaksipembeli')}}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Data Transaksi Pembeli </p>
             </a>
@@ -262,5 +264,13 @@
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/demo.js')}}"></script>
+<!-- DataTables -->
+<script src="{{asset('plugins/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{asset('plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+<script>
+  $(function () {
+    $("#tabel1").DataTable();
+  });
+</script>
 </body>
 </html>

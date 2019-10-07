@@ -8,6 +8,6 @@ class PagesControllerAdmin extends Controller
 {
     //
     public function home(){
-    	return view('dashboard_admin');
+    	return view('admin.dashboard_admin');
     }
 }
