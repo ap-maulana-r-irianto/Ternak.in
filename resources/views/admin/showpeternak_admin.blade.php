@@ -14,7 +14,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Ternak</li>
               <li class="breadcrumb-item">Data Peternak</li>
-              <li class="breadcrumb-item"><a class="text-dark" href="{{url('/admin/seluruhpeternak')}}">Seluruh Peternak</a></li>
+              <li class="breadcrumb-item"><a class="text-dark" href="{{url('/admin/peternak')}}">Seluruh Peternak</a></li>
               <li class="breadcrumb-item active">Detail Peternak</li>
             </ol>
           </div>
@@ -24,9 +24,10 @@
 
     <!-- Main content -->
     <section class="content">
+      <div class="container">
 
       <!-- Default box -->
-      <form method="get" action="{{url('/admin/editpeternak/'.$peternak->id)}}">
+      <form method="get" action="{{url('/admin/peternak/'.$peternak->id.'/edit')}}">
         <div class="form-group">
           <label for="inputName">Nama</label>
           <input type="text" class="form-control" id="inputName" placeholder="{{$peternak->nama}}" readonly>
@@ -67,6 +68,7 @@
         <button type="submit" class="btn btn-success">UBAH</button>
       </form>
       <!-- /.card -->
+    </div>
 
     </section>
     <!-- /.content -->

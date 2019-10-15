@@ -30,7 +30,7 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <!-- <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Cari" aria-label="Search">
         <div class="input-group-append">
@@ -39,7 +39,7 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <!-- Right navbar links -->
     
@@ -75,14 +75,14 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="{{url('/admin/dashboard')}}" class="nav-link active">
+            <a href="{{url('/admin/dashboard')}}" class="nav-link @yield('dashboard')">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
             </a>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{url('/admin/profil')}}" class="nav-link @yield('profil')">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Profil
@@ -90,7 +90,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{url('/admin/grafik')}}" class="nav-link @yield('grafik')">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Grafik
@@ -98,7 +98,7 @@
             </a>
           </li>
           <li class="nav-header">TERNAK</li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -108,26 +108,26 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/admin/caripeternak')}}" class="nav-link">
+                <a href="{{url('/admin/caripeternak')}}" class="nav-link @yield('caripeternak')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Peternak</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/tambahpeternak')}}" class="nav-link">
+                <a href="{{url('/admin/peternak/create')}}" class="nav-link @yield('tambahpeternak')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Tambah Peternak</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/seluruhpeternak')}}" class="nav-link">
+                <a href="{{url('/admin/peternak')}}" class="nav-link @yield('seluruhpeternak')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Peternak</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -137,26 +137,26 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/admin/cariinvestor')}}" class="nav-link">
+                <a href="{{url('/admin/cariinvestor')}}" class="nav-link @yield('cariinvestor')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Investor</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/tambahinvestor')}}" class="nav-link">
+                <a href="{{url('/admin/investor/create')}}" class="nav-link @yield('tambahinvestor')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Tambah Investor</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/seluruhinvestor')}}" class="nav-link">
+                <a href="{{url('/admin/investor')}}" class="nav-link @yield('seluruhinvestor')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Investor</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -166,26 +166,26 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/admin/caripembeli')}}" class="nav-link">
+                <a href="{{url('/admin/caripembeli')}}" class="nav-link @yield('caripembeli')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Pembeli</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/tambahpembeli')}}" class="nav-link">
+                <a href="{{url('/admin/pembeli/create')}}" class="nav-link @yield('tambahpembeli')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Tambah Pembeli</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/seluruhpembeli')}}" class="nav-link">
+                <a href="{{url('/admin/pembeli')}}" class="nav-link @yield('seluruhpembeli')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Pembeli</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -195,37 +195,29 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/admin/caritransaksi')}}" class="nav-link">
+                <a href="{{url('/admin/caritransaksi')}}" class="nav-link @yield('caritransaksi')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Transaksi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/admin/seluruhtransaksi')}}" class="nav-link">
+                <a href="{{url('/admin/transaksi')}}" class="nav-link @yield('seluruhtransaksi')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Transaksi</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="" class="nav-link">
-              <i class="nav-icon far fa-plus-square"></i>
-              <p>
-                Extras
-              </p>
-            </a>
-          </li>
           </li>
           <li class="nav-header">Rekap Data</li>
           <li class="nav-item">
-            <a href="{{url('/admin/datatransaksiinvestor')}}" class="nav-link">
+            <a href="{{url('/admin/datatransaksiinvestor')}}" class="nav-link @yield('datatransaksiinvestor')">
               <i class="nav-icon fas fa-file"></i>
               <p>Data Transaksi Investor</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('/admin/datatransaksipembeli')}}" class="nav-link">
+            <a href="{{url('/admin/datatransaksipembeli')}}" class="nav-link @yield('datatransaksipembeli')">
               <i class="nav-icon fas fa-file"></i>
               <p>Data Transaksi Pembeli </p>
             </a>
@@ -271,6 +263,191 @@
   $(function () {
     $("#tabel1").DataTable();
   });
+</script>
+<script>
+  $(function () {
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
+
+    //--------------
+    //- AREA CHART -
+    //--------------
+
+    // Get context with jQuery - using jQuery's .get() method.
+    var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+
+    var areaChartData = {
+      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label               : 'Digital Goods',
+          backgroundColor     : 'rgba(60,141,188,0.9)',
+          borderColor         : 'rgba(60,141,188,0.8)',
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [28, 48, 40, 19, 86, 27, 90]
+        },
+        {
+          label               : 'Electronics',
+          backgroundColor     : 'rgba(210, 214, 222, 1)',
+          borderColor         : 'rgba(210, 214, 222, 1)',
+          pointRadius         : false,
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : [65, 59, 80, 81, 56, 55, 40]
+        },
+      ]
+    }
+
+    var areaChartOptions = {
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }],
+        yAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }]
+      }
+    }
+
+    // This will get the first returned node in the jQuery collection.
+    var areaChart       = new Chart(areaChartCanvas, { 
+      type: 'line',
+      data: areaChartData, 
+      options: areaChartOptions
+    })
+
+    //-------------
+    //- LINE CHART -
+    //--------------
+    var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+    var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
+    var lineChartData = jQuery.extend(true, {}, areaChartData)
+    lineChartData.datasets[0].fill = false;
+    lineChartData.datasets[1].fill = false;
+    lineChartOptions.datasetFill = false
+
+    var lineChart = new Chart(lineChartCanvas, { 
+      type: 'line',
+      data: lineChartData, 
+      options: lineChartOptions
+    })
+
+    //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          'Chrome', 
+          'IE',
+          'FireFox', 
+          'Safari', 
+          'Opera', 
+          'Navigator', 
+      ],
+      datasets: [
+        {
+          data: [700,500,400,600,300,100],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var donutChart = new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions      
+    })
+
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    var pieData        = donutData;
+    var pieOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var pieChart = new Chart(pieChartCanvas, {
+      type: 'pie',
+      data: pieData,
+      options: pieOptions      
+    })
+
+    //-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartData = jQuery.extend(true, {}, areaChartData)
+    var temp0 = areaChartData.datasets[0]
+    var temp1 = areaChartData.datasets[1]
+    barChartData.datasets[0] = temp1
+    barChartData.datasets[1] = temp0
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    var barChart = new Chart(barChartCanvas, {
+      type: 'bar', 
+      data: barChartData,
+      options: barChartOptions
+    })
+
+    //---------------------
+    //- STACKED BAR CHART -
+    //---------------------
+    var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+    var stackedBarChartData = jQuery.extend(true, {}, barChartData)
+
+    var stackedBarChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      scales: {
+        xAxes: [{
+          stacked: true,
+        }],
+        yAxes: [{
+          stacked: true
+        }]
+      }
+    }
+
+    var stackedBarChart = new Chart(stackedBarChartCanvas, {
+      type: 'bar', 
+      data: stackedBarChartData,
+      options: stackedBarChartOptions
+    })
+    
+  })
 </script>
 </body>
 </html>

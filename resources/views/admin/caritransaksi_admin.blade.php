@@ -1,5 +1,5 @@
 @extends('layouts.template_admin')
-
+@section('caritransaksi', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -23,8 +23,9 @@
 
     <!-- Main content -->
     <section class="content">
+      <div class="container">
 
-      <form">
+      <form>
       <div class="form-group col-md-6">
         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -33,6 +34,7 @@
       </div>
     </form>
       <!-- /.card -->
+    </div>
 
     </section>
     <!-- /.content -->

@@ -1,5 +1,5 @@
 @extends('layouts.template_admin')
-
+@section('caripeternak', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -23,6 +23,7 @@
 
     <!-- Main content -->
     <section class="content">
+    <div class="container">
   
     <table id="tabel1" class="table table-hover">
             <thead class="thead-dark">
@@ -42,8 +43,8 @@
                 <td>{{$ptrnk->noktp}}</td>
                 <td>{{$ptrnk->username}}</td>
                 <td>
-                  <a href="{{url('/admin/detailpeternak/'.$ptrnk->id)}}" class="badge badge-success">DETAIL</a>
-                    <form class="d-inline-block" action="{{url('/admin/destroypeternak/'.$ptrnk->id)}}" method="POST">
+                  <a href="{{url('/admin/peternak/'.$ptrnk->id)}}" class="badge badge-success">DETAIL</a>
+                    <form class="d-inline-block" action="{{url('/admin/peternak/'.$ptrnk->id)}}" method="POST">
                     @csrf
                     @method('delete')
                       <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
@@ -55,6 +56,7 @@
             </table>
 
       <!-- /.card -->
+    </div>
 
     </section>
     <!-- /.content -->

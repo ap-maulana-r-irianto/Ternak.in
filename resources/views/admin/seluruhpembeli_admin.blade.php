@@ -1,5 +1,5 @@
 @extends('layouts.template_admin')
-
+@section('seluruhpembeli', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -23,6 +23,13 @@
 
         <!-- Main content -->
         <section class="content">
+          <div class="container">
+
+          @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
+              </div>
+          @endif
 
           <!-- Default box -->
           <table class="table">
@@ -36,19 +43,26 @@
               </tr>
             </thead>
             <tbody>
+              @foreach($pembeli as $pmbl)
               <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$pmbl->nama}}</td>
+                <td>{{$pmbl->noktp}}</td>
+                <td>{{$pmbl->username}}</td>
                 <td>
-                  <a href="" class="badge badge-success">DETAIL</a>
-                  <a href="" class="badge badge-danger">HAPUS</a>
+                  <a href="{{url('/admin/pembeli/'.$pmbl->id)}}" class="badge badge-success">DETAIL</a>
+                    <form class="d-inline-block" action="{{url('/admin/pembeli/'.$pmbl->id)}}" method="POST">
+                      @csrf
+                      @method('delete')
+                        <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
+                    </form>
                 </td>
               </tr>
+              @endforeach
             </tbody>
           </table>
       <!-- /.card -->
+    </div>
 
     </section>
     <!-- /.content -->

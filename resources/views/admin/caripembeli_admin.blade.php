@@ -1,5 +1,5 @@
 @extends('layouts.template_admin')
-
+@section('caripembeli', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -23,16 +23,39 @@
 
     <!-- Main content -->
     <section class="content">
+      <div class="container">
 
-      <form">
-      <div class="form-group col-md-6">
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-default my-2" type="submit">Search</button>
-        </div>
-      </div>
-    </form>
+      <table id="tabel1" class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>No. KTP</th>
+              <th>Username</th>
+              <th>Aksi</th>
+            </tr>
+            </thead>
+            <tbody>
+              @foreach($pembeli as $pmbl)
+              <tr>
+                <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$pmbl->nama}}</td>
+                <td>{{$pmbl->noktp}}</td>
+                <td>{{$pmbl->username}}</td>
+                <td>
+                  <a href="{{url('/admin/pembeli/'.$pmbl->id)}}" class="badge badge-success">DETAIL</a>
+                    <form class="d-inline-block" action="{{url('/admin/pembeli/'.$pmbl->id)}}" method="POST">
+                    @csrf
+                    @method('delete')
+                      <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
+                    </form>
+                </td>
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
       <!-- /.card -->
+    </div>
 
     </section>
     <!-- /.content -->

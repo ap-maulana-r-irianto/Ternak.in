@@ -1,5 +1,5 @@
 @extends('layouts.template_admin')
-
+@section('seluruhtransaksi', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -23,6 +23,7 @@
 
         <!-- Main content -->
         <section class="content">
+          <div class="container">
 
           <!-- Default box -->
           <table class="table">
@@ -47,6 +48,7 @@
             </tbody>
           </table>
       <!-- /.card -->
+    </div>
 
     </section>
     <!-- /.content -->

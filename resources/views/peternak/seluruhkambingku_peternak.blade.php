@@ -23,22 +23,26 @@
 
         <!-- Main content -->
         <section class="content">
-
+        <div class="container">
           <!-- Default box -->
           <table class="table">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">ID Kambing</th>
-                <th scope="col">Umur</th>
+                <th scope="col">Jenis</th>
+                <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Berat</th>
-                <th scope="col">Investor</th>
+                <th scope="col">Jenis Kelamin</th>
+                <th scope="col">Harga</th>
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">1</th>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -51,7 +55,7 @@
             </tbody>
           </table>
       <!-- /.card -->
-
+    </div>
     </section>
     <!-- /.content -->
   </div>

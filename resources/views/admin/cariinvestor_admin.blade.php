@@ -1,5 +1,5 @@
 @extends('layouts.template_admin')
-
+@section('cariiivestor', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -23,17 +23,38 @@
 
     <!-- Main content -->
     <section class="content">
-
-      <form">
-      <div class="form-group col-md-6">
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-default my-2" type="submit">Search</button>
-        </div>
-      </div>
-    </form>
+    <div class="container">
+      <table id="tabel1" class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>No. KTP</th>
+              <th>Username</th>
+              <th>Aksi</th>
+            </tr>
+            </thead>
+            <tbody>
+              @foreach($investor as $invstr)
+              <tr>
+                <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$invstr->nama}}</td>
+                <td>{{$invstr->noktp}}</td>
+                <td>{{$invstr->username}}</td>
+                <td>
+                  <a href="{{url('/admin/investor/'.$invstr->id)}}" class="badge badge-success">DETAIL</a>
+                    <form class="d-inline-block" action="{{url('/admin/investor/'.$invstr->id)}}" method="POST">
+                    @csrf
+                    @method('delete')
+                      <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
+                    </form>
+                </td>
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
       <!-- /.card -->
-
+    </div>
     </section>
     <!-- /.content -->
   </div>

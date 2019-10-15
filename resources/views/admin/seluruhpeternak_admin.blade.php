@@ -1,5 +1,5 @@
 @extends('layouts.template_admin')
-
+@section('seluruhpeternak', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -23,8 +23,16 @@
 
         <!-- Main content -->
         <section class="content">
+          <div class="container">
 
           <!-- Default box -->
+
+          @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
+              </div>
+          @endif
+
           <table class="table table-hover">
             <thead class="thead-dark">
               <tr>
@@ -43,11 +51,11 @@
                 <td>{{$ptrnk->noktp}}</td>
                 <td>{{$ptrnk->username}}</td>
                 <td>
-                  <a href="{{url('/admin/detailpeternak/'.$ptrnk->id)}}" class="badge badge-success">DETAIL</a>
-                    <form class="d-inline-block" action="{{url('/admin/destroypeternak/'.$ptrnk->id)}}" method="POST">
-                    @csrf
-                    @method('delete')
-                      <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
+                  <a href="{{url('/admin/peternak/'.$ptrnk->id)}}" class="badge badge-success">DETAIL</a>
+                    <form class="d-inline-block" action="{{url('/admin/peternak/'.$ptrnk->id)}}" method="POST">
+                      @csrf
+                      @method('delete')
+                        <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
                     </form>
                 </td>
               </tr>
@@ -55,6 +63,7 @@
             </tbody>
           </table>
       <!-- /.card -->
+    </div>
 
     </section>
     <!-- /.content -->

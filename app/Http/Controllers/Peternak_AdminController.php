@@ -46,17 +46,42 @@ class Peternak_AdminController extends Controller
     public function store(Request $request)
     {
         //
-        $peternak = new Peternak();
-        $peternak->nama = $request->input('nama');
-        $peternak->alamat = $request->input('alamat');
-        $peternak->nohp = $request->input('nohp');
-        $peternak->noktp = $request->input('noktp');
-        $peternak->alamatpeternakan = $request->input('alamatpeternakan');
-        $peternak->username = $request->input('username');
-        $peternak->password = $request->input('password');
-        $peternak->email = $request->input('email');
-        $peternak->save();
-        return redirect('/admin/seluruhpeternak');
+        // $peternak = new Peternak;
+        // $peternak->nama = $request->nama;
+        // $peternak->alamat = $request->alamat;
+        // $peternak->nohp = $request->nohp;
+        // $peternak->noktp = $request->noktp;
+        // $peternak->alamatpeternakan = $request->alamatpeternakan;
+        // $peternak->username = $request->username;
+        // $peternak->password = $request->password;
+        // $peternak->email = $request->email;
+        // $peternak->save();
+
+        // Peternak::create([
+        //     'nama' => $request->nama,
+        //     'alamat' => $request->alamat,
+        //     'nohp' => $request->nohp,
+        //     'noktp' => $request->noktp,
+        //     'alamatpeternakan' => $request->alamatpeternakan,
+        //     'username' => $request->username,
+        //     'password' => $request->password,
+        //     'email' => $request->email
+        // ])
+        
+        $request->validate([
+            'nama' => ['required'],
+            'alamat' => ['required'],
+            'nohp' => ['required', 'max:14'],
+            'noktp' => ['required', 'size:16', 'unique:peternak,noktp'],
+            'alamatpeternakan' => ['required'],
+            'username' => ['required', 'size:6', 'unique:peternak,username'],
+            'password' => ['required', 'size:10'],
+            'email' => ['required', 'email']
+        ]);
+
+        Peternak::create($request->all());
+
+        return redirect('/admin/peternak')->with('status','Data Peternak Berhasil Ditambahkan!');
     }
 
     /**
@@ -96,14 +121,14 @@ class Peternak_AdminController extends Controller
     {
         //
         $request->validate([
-            'nama' => 'required',
-            'alamat' => 'required',
-            'nohp' => 'required',
-            'noktp' => 'required',
-            'alamatpeternakan' => 'required',
-            'username' => 'required',
-            'password' => 'required',
-            'email' => 'required'
+            'nama' => ['required'],
+            'alamat' => ['required'],
+            'nohp' => ['required', 'max:14'],
+            'noktp' => ['required', 'size:16', 'unique:peternak,noktp'],
+            'alamatpeternakan' => ['required'],
+            'username' => ['required', 'size:6', 'unique:peternak,username'],
+            'password' => ['required', 'size:10'],
+            'email' => ['required', 'email']
         ]);
         
         Peternak::where('id', $id)->update([
@@ -116,7 +141,7 @@ class Peternak_AdminController extends Controller
             'password' => $request->password,
             'email' => $request->email
         ]);
-        return redirect('/admin/seluruhpeternak');
+        return redirect('/admin/peternak')->with('status','Data Peternak Berhasil Diubah!');
     }
 
     /**
@@ -129,6 +154,6 @@ class Peternak_AdminController extends Controller
     {
         //
         Peternak::destroy($id);
-        return redirect('/admin/seluruhpeternak');
+        return redirect('/admin/peternak')->with('status','Data Peternak Berhasil Dihapus!');
     }
 }

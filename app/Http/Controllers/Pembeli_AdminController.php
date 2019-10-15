@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Pembeli;
 
 class Pembeli_AdminController extends Controller
 {
     public function search(){
-        return view('admin.caripembeli_admin');
+        $pembeli = Pembeli::all();
+        return view('admin.caripembeli_admin', ['pembeli' => $pembeli]);
     }
     /**
      * Display a listing of the resource.
@@ -17,7 +20,8 @@ class Pembeli_AdminController extends Controller
     public function index()
     {
         //
-        return view('admin.seluruhpembeli_admin');
+        $pembeli = Pembeli::all();
+        return view('admin.seluruhpembeli_admin', ['pembeli' => $pembeli]);
     }
 
     /**
@@ -40,6 +44,19 @@ class Pembeli_AdminController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nama' => ['required'],
+            'alamat' => ['required'],
+            'nohp' => ['required', 'max:14'],
+            'noktp' => ['required', 'size:16', 'unique:investor,username'],
+            'username' => ['required', 'size:6', 'unique:investor,username'],
+            'password' => ['required', 'size:10'],
+            'email' => ['required', 'email']
+        ]);
+
+        Pembeli::create($request->all());
+
+        return redirect('/admin/pembeli')->with('status','Data Pembeli Berhasil Ditambahkan!');
     }
 
     /**
@@ -63,6 +80,8 @@ class Pembeli_AdminController extends Controller
     public function edit($id)
     {
         //
+        $pembeli = Pembeli::findorfail($id);
+        return view('admin.editpembeli_admin', compact('pembeli'));
     }
 
     /**
@@ -75,6 +94,26 @@ class Pembeli_AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nama' => ['required'],
+            'alamat' => ['required'],
+            'nohp' => ['required', 'max:14'],
+            'noktp' => ['required', 'size:16', 'unique:investor,username'],
+            'username' => ['required', 'size:6', 'unique:investor,username'],
+            'password' => ['required', 'size:10'],
+            'email' => ['required', 'email']
+        ]);
+
+        Pembeli::where('id', $id)->update([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'nohp' => $request->nohp,
+            'noktp' => $request->noktp,
+            'username' => $request->username,
+            'password' => $request->password,
+            'email' => $request->email
+        ]);
+        return redirect('/admin/pembeli')->with('status','Data Pembeli Berhasil Diubah!');
     }
 
     /**
@@ -86,5 +125,7 @@ class Pembeli_AdminController extends Controller
     public function destroy($id)
     {
         //
+        Pembeli::destroy($id);
+        return redirect('/admin/pembeli')->with('status','Data Pembeli Berhasil Dihapus!');
     }
 }

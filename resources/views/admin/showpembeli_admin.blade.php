@@ -23,6 +23,7 @@
 
     <!-- Main content -->
     <section class="content">
+      <div class="container">
 
       <!-- Default box -->
       <form>
@@ -62,6 +63,7 @@
         <button type="submit" class="btn btn-success">UBAH</button>
       </form>
       <!-- /.card -->
+    </div>
 
     </section>
     <!-- /.content -->

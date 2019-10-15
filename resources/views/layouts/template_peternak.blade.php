@@ -27,17 +27,7 @@
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Cari" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
+    
 
     <!-- Right navbar links -->
     
@@ -73,14 +63,14 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
+            <a href="{{url('/peternak/dashboard')}}" class="nav-link @yield('dashboard')">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
             </a>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{url('/peternak/profil')}}" class="nav-link @yield('profil')">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Profil
@@ -88,7 +78,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{url('/peternak/grafik')}}" class="nav-link @yield('grafik')">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Grafik
@@ -96,7 +86,7 @@
             </a>
           </li>
           <li class="nav-header">TERNAK</li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -106,26 +96,26 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/peternak/carikambingku')}}" class="nav-link">
+                <a href="{{url('/peternak/carikambingku')}}" class="nav-link @yield('carikambingku')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Kambingku</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/peternak/tambahkambingku')}}" class="nav-link">
+                <a href="{{url('/peternak/kambingku/create')}}" class="nav-link @yield('tambahkambingku')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Tambah Kambingku</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/peternak/seluruhkambingku')}}" class="nav-link">
+                <a href="{{url('/peternak/kambingku')}}" class="nav-link @yield('seluruhkambingku')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Kambingku</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -135,20 +125,20 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/peternak/cariinvestorku')}}" class="nav-link">
+                <a href="{{url('/peternak/cariinvestorku')}}" class="nav-link @yield('cariinvestorku')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Investorku</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/peternak/seluruhinvestorku')}}" class="nav-link">
+                <a href="{{url('/peternak/investorku')}}" class="nav-link @yield('seluruhinvestorku')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Investorku</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -158,20 +148,20 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/peternak/cariperminvestasi')}}" class="nav-link">
+                <a href="{{url('/peternak/cariperminvestasi')}}" class="nav-link @yield('cariperminvestasi')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Perm. Investasi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/peternak/seluruhperminvestasi')}}" class="nav-link">
+                <a href="{{url('/peternak/perminvestasi')}}" class="nav-link @yield('seluruhperinvestasi')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Perm. Investasi</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -181,21 +171,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/peternak/carirequestjual')}}" class="nav-link">
+                <a href="{{url('/peternak/carirequestjual')}}" class="nav-link @yield('dashboard')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Request Jual</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/peternak/seluruhrequestjual')}}" class="nav-link">
+                <a href="{{url('/peternak/requestjual')}}" class="nav-link @yield('seluruhrequestjual')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Request Jual</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="" class="nav-link">
+          <li class="nav-item has-treeview">
+            <a href="{{url('/peternak/keranjang')}}" class="nav-link @yield('keranjang')">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Keranjang Ternak
@@ -205,7 +195,7 @@
           </li>
           <li class="nav-header">Riwayat</li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+            <a href="{{url('/peternak/riwayat')}}" class="nav-link @yield('riwayat')">
               <i class="nav-icon fas fa-file"></i>
               <p>Riwayat Transaksi</p>
             </a>

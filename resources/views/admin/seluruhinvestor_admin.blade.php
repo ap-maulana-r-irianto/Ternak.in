@@ -1,5 +1,5 @@
 @extends('layouts.template_admin')
-
+@section('seluruhinvestor', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -23,8 +23,14 @@
 
         <!-- Main content -->
         <section class="content">
+          <div class="container">
 
           <!-- Default box -->
+          @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
+              </div>
+          @endif
           <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -36,19 +42,26 @@
               </tr>
             </thead>
             <tbody>
+              @foreach($investor as $invstr)
               <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$invstr->nama}}</td>
+                <td>{{$invstr->noktp}}</td>
+                <td>{{$invstr->username}}</td>
                 <td>
-                  <a href="" class="badge badge-success">DETAIL</a>
-                  <a href="" class="badge badge-danger">HAPUS</a>
+                  <a href="{{url('/admin/investor/'.$invstr->id)}}" class="badge badge-success">DETAIL</a>
+                    <form class="d-inline-block" action="{{url('/admin/investor/'.$invstr->id)}}" method="POST">
+                      @csrf
+                      @method('delete')
+                        <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
+                    </form>
                 </td>
               </tr>
+              @endforeach
             </tbody>
           </table>
       <!-- /.card -->
+    </div>
 
     </section>
     <!-- /.content -->
