@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Kambing;
 
 class Kambingku_PeternakController extends Controller
 {
+    public function search(){
+        //
+        $kambing = Kambing::all();
+        return view('peternak.carikambingku_peternak', ['kambing' => $kambing]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class Kambingku_PeternakController extends Controller
     public function index()
     {
         //
-        return view('peternak.seluruhkambingku_peternak');
+        $kambing = Kambing::all();
+        return view('peternak.seluruhkambingku_peternak', ['kambing' => $kambing]);
     }
 
     /**
@@ -37,6 +46,18 @@ class Kambingku_PeternakController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'idkambing' => ['required', 'unique:kambing,idkambing'],
+            'jeniskambing' => ['required'],
+            'tgllahir' => ['required', 'date'],
+            'berat' => ['required'],
+            'jeniskelamin' => ['required'],
+            'harga' => ['required']
+        ]);
+
+        Kambing::create($request->all());
+
+        return redirect('/peternak/kambingku')->with('status','Data Kambingku Berhasil Ditambahkan!');
     }
 
     /**

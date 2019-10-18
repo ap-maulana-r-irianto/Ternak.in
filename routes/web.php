@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', 'PagesController@login');
-Route::get('/register', 'PagesController@register');
+Route::get('/', 'PagesController@login')->middleware('guest');
+Route::get('/logout', 'PagesController@logout');
+Route::get('/create', 'PagesController@create')->middleware('guest');
+Route::post('/store', 'PagesController@store');
 
 //peternak
 Route::get('/peternak/dashboard', 'PagesControllerPeternak@home');
@@ -49,6 +51,10 @@ Route::resource('/admin/pembeli', 'Pembeli_AdminController');
 Route::get('/admin/caritransaksi', 'Transaksi_AdminController@search');
 Route::resource('/admin/transaksi', 'Transaksi_AdminController');
 
-
+//investor
 Route::get('/investor/dashboard', 'PagesControllerInvestor@home');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

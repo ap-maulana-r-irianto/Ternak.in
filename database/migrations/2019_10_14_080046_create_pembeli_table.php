@@ -22,7 +22,9 @@ class CreatePembeliTable extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('email');
+            $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

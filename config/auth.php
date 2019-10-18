@@ -46,6 +46,46 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+        ],
+
+        'apiadmin' => [
+            'driver' => 'token',
+            'provider' => 'admin',
+            'hash' => false,
+        ],
+        'peternak' => [
+            'driver' => 'session',
+            'provider' => 'peternak',
+        ],
+
+        'apipeternak' => [
+            'driver' => 'token',
+            'provider' => 'peternak',
+            'hash' => false,
+        ],
+        'investor' => [
+            'driver' => 'session',
+            'provider' => 'investor',
+        ],
+
+        'apiinvestor' => [
+            'driver' => 'token',
+            'provider' => 'investor',
+            'hash' => false,
+        ],
+        'pembeli' => [
+            'driver' => 'session',
+            'provider' => 'pembeli',
+        ],
+
+        'apipembeli' => [
+            'driver' => 'token',
+            'provider' => 'pembeli',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -69,6 +109,22 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\LoginAdmin::class,
+        ],
+        'peternak' => [
+            'driver' => 'eloquent',
+            'model' => App\LoginPeternak::class,
+        ],
+        'investor' => [
+            'driver' => 'eloquent',
+            'model' => App\LoginInvestor::class,
+        ],
+        'pembeli' => [
+            'driver' => 'eloquent',
+            'model' => App\LoginPembeli::class,
         ],
 
         // 'users' => [

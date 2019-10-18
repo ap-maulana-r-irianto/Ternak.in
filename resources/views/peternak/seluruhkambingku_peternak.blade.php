@@ -25,12 +25,17 @@
         <section class="content">
         <div class="container">
           <!-- Default box -->
+          @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
+              </div>
+          @endif
           <table class="table">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">ID Kambing</th>
-                <th scope="col">Jenis</th>
+                <th scope="col">Jenis Kambing</th>
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Berat</th>
                 <th scope="col">Jenis Kelamin</th>
@@ -39,19 +44,25 @@
               </tr>
             </thead>
             <tbody>
+              @foreach($kambing as $k)
               <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$k->idkambing}}</td>
+                <td>{{$k->jeniskambing}}</td>
+                <td>{{$k->tgllahir}}</td>
+                <td>{{$k->berat}}</td>
+                <td>{{$k->jeniskelamin}}</td>
+                <td>{{$k->harga}}</td>
                 <td>
-                  <a href="" class="badge badge-primary">UBAH</a>
-                  <a href="" class="badge badge-danger">HAPUS</a>
+                  <a href="{{url('/peternak/kambingku/'.$k->id)}}" class="badge badge-success">DETAIL</a>
+                    <form class="d-inline-block" action="{{url('/peternak/kambingku/'.$k->id)}}" method="POST">
+                      @csrf
+                      @method('delete')
+                        <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
+                    </form>
                 </td>
               </tr>
+              @endforeach
             </tbody>
           </table>
       <!-- /.card -->

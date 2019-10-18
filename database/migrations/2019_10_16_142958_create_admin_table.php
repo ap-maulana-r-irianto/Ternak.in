@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInvestorTable extends Migration
+class CreateAdminTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateInvestorTable extends Migration
      */
     public function up()
     {
-        Schema::create('investor', function (Blueprint $table) {
+        Schema::create('admin', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
             $table->string('alamat');
@@ -35,6 +35,6 @@ class CreateInvestorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('investor');
+        Schema::dropIfExists('admin');
     }
 }
