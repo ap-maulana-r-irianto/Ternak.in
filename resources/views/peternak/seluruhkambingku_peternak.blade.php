@@ -35,11 +35,13 @@
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">ID Kambing</th>
-                <th scope="col">Jenis Kambing</th>
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Berat</th>
                 <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Harga</th>
+                <th scope="col">Jenis Kambing</th>
+                <th scope="col">Peternak</th>
+                <th scope="col">Foto</th>
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
@@ -48,13 +50,17 @@
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$k->idkambing}}</td>
-                <td>{{$k->jeniskambing}}</td>
                 <td>{{$k->tgllahir}}</td>
                 <td>{{$k->berat}}</td>
                 <td>{{$k->jeniskelamin}}</td>
                 <td>{{$k->harga}}</td>
+                <td>{{$k->jeniskambing}}</td>
+                
+                <td>{{$peternak->nama}}</td>
+
+                <td>{{$k->fotokambing}}</td>
                 <td>
-                  <a href="{{url('/peternak/kambingku/'.$k->id)}}" class="badge badge-success">DETAIL</a>
+                  <a href="{{url('/peternak/kambingku/'.$k->id.'/edit')}}" class="badge badge-success">UBAH</a>
                     <form class="d-inline-block" action="{{url('/peternak/kambingku/'.$k->id)}}" method="POST">
                       @csrf
                       @method('delete')

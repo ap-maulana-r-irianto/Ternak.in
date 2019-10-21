@@ -28,7 +28,7 @@
     <div class="container">
 
       <!-- Default box -->
-      <form method="post" action="{{url('/admin/investor/'.$investor->id)}}">
+      <form method="post" action="{{url('/admin/investor/'.$investor->id)}}" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="form-group">
@@ -85,6 +85,13 @@
                 {{ $message }}
               @enderror
             </div>
+            <div class="form-group">
+              <label for="scanktp">Scan KTP</label>
+              <input type="file" name="scanktp" class="form-control-file @error('scanktp') is-invalid @enderror" id="scanktp">
+              @error('scanktp')
+                {{ $message }}
+              @enderror
+          </div>
         <button type="submit" name="simpan" class="btn btn-primary">SIMPAN</button>
       </form>
       <!-- /.card -->

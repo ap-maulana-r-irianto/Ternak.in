@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Investor;
 
-class Investor_AdminController extends Controller
+class Profil_Investor extends Controller
 {
-    public function search(){
-        $investor = Investor::all();
-        return view('admin.cariinvestor_admin', ['investor' => $investor]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +16,8 @@ class Investor_AdminController extends Controller
     public function index()
     {
         //
-        $investor = Investor::all();
-        return view('admin.seluruhinvestor_admin', ['investor' => $investor]);
+        $investor = Investor::where('id', '1')->first();
+        return view('investor.profil_investor', ['investor' => $investor]);
     }
 
     /**
@@ -31,7 +28,6 @@ class Investor_AdminController extends Controller
     public function create()
     {
         //
-        return view('admin.tambahinvestor_admin');
     }
 
     /**
@@ -42,36 +38,7 @@ class Investor_AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama'     => ['required'],
-            'alamat'   => ['required'],
-            'nohp'     => ['required', 'max:14'],
-            'noktp'    => ['required', 'size:16', 'unique:investor,username'],
-            'username' => ['required', 'size:6'],
-            'password' => ['required', 'size:10'],
-            'email'    => ['required', 'email', 'unique:investor,email'],
-            'scanktp'  => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
-        ]);
-
-        $file = $request->file('scanktp');
-        $folder = public_path('scanktpinvestor');
-        $file->move($folder, $file->getClientOriginalName());
-
-        // Investor::create($request->all());
-
-        $investor           = new Investor;
-        $investor->nama     = $request->nama;
-        $investor->alamat   = $request->alamat;
-        $investor->nohp     = $request->nohp;
-        $investor->noktp    = $request->noktp;
-        $investor->username = $request->username;
-        $investor->password = $request->password;
-        $investor->email    = $request->email;
-        $investor->scanktp  = $file->getClientOriginalName();
-
-        $investor->save();
-
-        return redirect('/admin/investor')->with('status','Data Investor Berhasil Ditambahkan!');
+        //
     }
 
     /**
@@ -83,8 +50,6 @@ class Investor_AdminController extends Controller
     public function show($id)
     {
         //
-        $investor = Investor::findorfail($id);
-        return view('admin.showinvestor_admin', compact('investor'));
     }
 
     /**
@@ -97,7 +62,7 @@ class Investor_AdminController extends Controller
     {
         //
         $investor = Investor::findorfail($id);
-        return view('admin.editinvestor_admin', compact('investor'));
+        return view('investor.editprofil_investor', compact('investor'));
     }
 
     /**
@@ -135,7 +100,7 @@ class Investor_AdminController extends Controller
             'email'    => $request->email,
             'scanktp'  => $file->getClientOriginalName()
         ]);
-        return redirect('/admin/investor')->with('status','Data Investor Berhasil Diubah!');
+        return redirect('/investor/profil')->with('status','Data Profil Berhasil Diubah!');
     }
 
     /**
@@ -147,7 +112,5 @@ class Investor_AdminController extends Controller
     public function destroy($id)
     {
         //
-        Investor::destroy($id);
-        return redirect('/admin/investor')->with('status','Data Investor Berhasil Dihapus!');
     }
 }

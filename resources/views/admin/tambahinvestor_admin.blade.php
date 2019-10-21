@@ -25,7 +25,7 @@
     <section class="content">
     <div class="container">
       <!-- Default box -->
-      <form method="POST" action="{{url('/admin/investor')}}">
+      <form method="POST" action="{{url('/admin/investor')}}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label for="inputName">Nama</label>
@@ -73,14 +73,21 @@
             @enderror
           </div>
           </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email</label>
-              <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" value="{{old('email')}}">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              @error('email')
-                {{ $message }}
-              @enderror
-            </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" value="{{old('email')}}">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            @error('email')
+              {{ $message }}
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="scanktp">Scan KTP</label>
+            <input type="file" name="scanktp" class="form-control-file @error('scanktp') is-invalid @enderror" id="scanktp" value="{{old('scanktp')}}">
+            @error('scanktp')
+              {{ $message }}
+            @enderror
+          </div>
         <button type="submit" class="btn btn-primary">Tambah</button>
       </form>
       <!-- /.card -->

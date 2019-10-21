@@ -3,12 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Peternak;
+use App\Investor;
+use App\Admin;
+use App\Kambing;
+
 
 class PagesControllerPeternak extends Controller
 {
     //
     public function home(){
-    	return view('peternak.dashboard_peternak');
+        $peternak = Peternak::all();
+        $investor = Investor::all();
+        $admin    = Admin::all();
+        $kambing  = Kambing::all();
+    	return view('peternak.dashboard_peternak', ['peternak' => $peternak, 'investor' => $investor, 'admin' => $admin, 'kambing' => $kambing]);
     }
 
     public function grafik(){
@@ -16,6 +25,7 @@ class PagesControllerPeternak extends Controller
     }
 
     public function profil(){
-    	return view('peternak.profil_peternak');
+        $peternak = Peternak::where('id','1')->first();
+    	return view('peternak.profil_peternak', ['peternak' => $peternak]);
     }
 }

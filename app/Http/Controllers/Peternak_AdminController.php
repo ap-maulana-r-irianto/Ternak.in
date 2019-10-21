@@ -69,17 +69,35 @@ class Peternak_AdminController extends Controller
         // ])
         
         $request->validate([
-            'nama' => ['required'],
-            'alamat' => ['required'],
-            'nohp' => ['required', 'max:14'],
-            'noktp' => ['required', 'size:16', 'unique:peternak,noktp'],
+            'nama'             => ['required'],
+            'alamat'           => ['required'],
+            'nohp'             => ['required', 'max:14'],
+            'noktp'            => ['required', 'size:16', 'unique:peternak,noktp'],
             'alamatpeternakan' => ['required'],
-            'username' => ['required', 'size:6', 'unique:peternak,username'],
-            'password' => ['required', 'size:10'],
-            'email' => ['required', 'email']
+            'username'         => ['required', 'size:6'],
+            'password'         => ['required', 'size:10'],
+            'email'            => ['required', 'email', 'unique:peternak,email'],
+            'scanktp'          => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
         ]);
 
-        Peternak::create($request->all());
+        $file = $request->file('scanktp');
+        $folder = public_path('scanktppeternak');
+        $file->move($folder, $file->getClientOriginalName());
+
+        // Peternak::create($request->all());
+
+        $peternak = new Peternak;
+        $peternak->nama = $request->nama;
+        $peternak->alamat = $request->alamat;
+        $peternak->nohp = $request->nohp;
+        $peternak->noktp = $request->noktp;
+        $peternak->alamatpeternakan = $request->alamatpeternakan;
+        $peternak->username = $request->username;
+        $peternak->password = $request->password;
+        $peternak->email = $request->email;
+        $peternak->scanktp = $file->getClientOriginalName();
+
+        $peternak->save();
 
         return redirect('/admin/peternak')->with('status','Data Peternak Berhasil Ditambahkan!');
     }
@@ -121,25 +139,31 @@ class Peternak_AdminController extends Controller
     {
         //
         $request->validate([
-            'nama' => ['required'],
-            'alamat' => ['required'],
-            'nohp' => ['required', 'max:14'],
-            'noktp' => ['required', 'size:16', 'unique:peternak,noktp'],
+            'nama'             => ['required'],
+            'alamat'           => ['required'],
+            'nohp'             => ['required', 'max:14'],
+            'noktp'            => ['required', 'size:16', 'unique:peternak,noktp'],
             'alamatpeternakan' => ['required'],
-            'username' => ['required', 'size:6', 'unique:peternak,username'],
-            'password' => ['required', 'size:10'],
-            'email' => ['required', 'email']
+            'username'         => ['required', 'size:6'],
+            'password'         => ['required', 'size:10'],
+            'email'            => ['required', 'email', 'unique:peternak,email'],
+            'scanktp'          => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
         ]);
+
+        $file = $request->file('scanktp');
+        $folder = public_path('scanktppeternak');
+        $file->move($folder, $file->getClientOriginalName());
         
         Peternak::where('id', $id)->update([
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'nohp' => $request->nohp,
-            'noktp' => $request->noktp,
+            'nama'             => $request->nama,
+            'alamat'           => $request->alamat,
+            'nohp'             => $request->nohp,
+            'noktp'            => $request->noktp,
             'alamatpeternakan' => $request->alamatpeternakan,
-            'username' => $request->username,
-            'password' => $request->password,
-            'email' => $request->email
+            'username'         => $request->username,
+            'password'         => $request->password,
+            'email'            => $request->email,
+            'scanktp'          => $file->getClientOriginalName()
         ]);
         return redirect('/admin/peternak')->with('status','Data Peternak Berhasil Diubah!');
     }

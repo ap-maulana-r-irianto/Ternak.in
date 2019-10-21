@@ -40,7 +40,6 @@
                 <th scope="row">1</th>
                 <td></td>
                 <td></td>
-                <td></td>
                 <td>
                   <a href="" class="badge badge-success">DETAIL</a>
                 </td>

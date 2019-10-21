@@ -10,6 +10,9 @@ class Peternak extends Model
     //
     use SoftDeletes;
     protected $table = 'peternak';
-    protected $fillable = ['nama','alamat','nohp','noktp','alamatpeternakan','username','password','email'];
-     
+    protected $fillable = ['nama','alamat','nohp','noktp','alamatpeternakan','username','password','email','scanktp'];
+
+    public function kambing(){
+    	return $this->hasMany('App\Kambing');
+    }
 }

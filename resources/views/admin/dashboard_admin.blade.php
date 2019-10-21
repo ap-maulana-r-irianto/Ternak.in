@@ -29,7 +29,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150<sup style="font-size: 20px">orang</sup></h3>
+                <h3>{{$peternak->count()}}<sup style="font-size: 20px">orang</sup></h3>
 
                 <p>Peternak</p>
               </div>
@@ -44,7 +44,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">orang</sup></h3>
+                <h3>{{$investor->count()}}<sup style="font-size: 20px">orang</sup></h3>
 
                 <p>Investor</p>
               </div>
@@ -59,14 +59,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44<sup style="font-size: 20px">orang</sup></h3>
+                <h3>1<sup style="font-size: 20px">orang</sup></h3>
 
-                <p>Pembeli</p>
+                <p>Admin</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="{{url('/admin/pembeli')}}" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -74,14 +74,14 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65<sup style="font-size: 20px">++</sup></h3>
+                <h3>0<sup style="font-size: 20px">++</sup></h3>
 
                 <p>Transaksi</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{url('/admin/transaksi')}}" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

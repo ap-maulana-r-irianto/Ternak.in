@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Kambing;
+use App\Peternak;
 
 class Kambingku_PeternakController extends Controller
 {
@@ -23,7 +24,8 @@ class Kambingku_PeternakController extends Controller
     {
         //
         $kambing = Kambing::all();
-        return view('peternak.seluruhkambingku_peternak', ['kambing' => $kambing]);
+        $peternak = Peternak::where('id','1')->first();
+        return view('peternak.seluruhkambingku_peternak', ['kambing' => $kambing, 'peternak' => $peternak]);
     }
 
     /**
@@ -47,15 +49,33 @@ class Kambingku_PeternakController extends Controller
     {
         //
         $request->validate([
-            'idkambing' => ['required', 'unique:kambing,idkambing'],
-            'jeniskambing' => ['required'],
-            'tgllahir' => ['required', 'date'],
-            'berat' => ['required'],
+            'idkambing'    => ['required', 'unique:kambing,idkambing'],
+            'tgllahir'     => ['required', 'date'],
+            'berat'        => ['required'],
             'jeniskelamin' => ['required'],
-            'harga' => ['required']
-        ]);
+            'harga'        => ['required'],
+            'jeniskambing' => ['required'],
+            'idpeternak' => ['required'],
+            'fotokambing'  => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
+            ]);
 
-        Kambing::create($request->all());
+        $file = $request->file('fotokambing');
+        $folder = public_path('fotokambing');
+        $file->move($folder, $file->getClientOriginalName());
+
+        // Kambing::create($request->all());
+
+        $kambing = new Kambing;
+        $kambing->idkambing    = $request->idkambing;
+        $kambing->tgllahir     = $request->tgllahir;
+        $kambing->berat        = $request->berat;
+        $kambing->jeniskelamin = $request->jeniskelamin;
+        $kambing->harga        = $request->harga;
+        $kambing->jeniskambing = $request->jeniskambing;
+        $kambing->idpeternak   = $request->idpeternak;
+        $kambing->fotokambing  = $file->getClientOriginalName();
+
+        $kambing->save();
 
         return redirect('/peternak/kambingku')->with('status','Data Kambingku Berhasil Ditambahkan!');
     }
@@ -69,7 +89,8 @@ class Kambingku_PeternakController extends Controller
     public function show($id)
     {
         //
-        return view('peternak.detailkambingku_peternak');
+        $kambing = Kambing::findorfail($id);
+        return view('peternak.detailkambingku_peternak', compact('kambing'));
     }
 
     /**
@@ -81,6 +102,8 @@ class Kambingku_PeternakController extends Controller
     public function edit($id)
     {
         //
+        $kambing = Kambing::findorfail($id);
+        return view('peternak.detailkambingku_peternak', compact('kambing'));
     }
 
     /**
@@ -93,6 +116,32 @@ class Kambingku_PeternakController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'idkambing'    => ['required', 'unique:kambing,idkambing'],
+            'tgllahir'     => ['required', 'date'],
+            'berat'        => ['required'],
+            'jeniskelamin' => ['required'],
+            'harga'        => ['required'],
+            'jeniskambing' => ['required'],
+            'idpeternak' => ['required'],
+            'fotokambing'  => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
+            ]);
+
+        $file = $request->file('fotokambing');
+        $folder = public_path('fotokambing');
+        $file->move($folder, $file->getClientOriginalName());
+
+        Kambing::where('id', $id)->update([
+            'idkambing'    => $request->idkambing,
+            'tgllahir'     => $request->tgllahir,
+            'berat'        => $request->berat,
+            'jeniskelamin' => $request->jeniskelamin,
+            'harga'        => $request->harga,
+            'jeniskambing' => $request->jeniskambing,
+            'idpeternak'   => $request->idpeternak,
+            'fotokambing'  => $file->getClientOriginalName()
+        ]);
+        return redirect('/peternak/kambingku')->with('status','Data Kambing Berhasil Diubah!');
     }
 
     /**
@@ -103,6 +152,7 @@ class Kambingku_PeternakController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Peternak::destroy($id);
+        return redirect('/peternak/kambingku')->with('status','Data Kambing Berhasil Dihapus!');
     }
 }

@@ -30,14 +30,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150<sup style="font-size: 20px">ekor</sup></h3>
+                <h3>{{$kambing->count()}}<sup style="font-size: 20px">ekor</sup></h3>
 
                 <p>Kambingku</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="{{url('/admin/peternak')}}" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{url('/peternak/kambingku')}}" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -45,14 +45,14 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">orang</sup></h3>
+                <h3>0<sup style="font-size: 20px">orang</sup></h3>
 
                 <p>Investorku</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="{{url('/admin/investor')}}" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -60,14 +60,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44<sup style="font-size: 20px">++</sup></h3>
+                <h3>0<sup style="font-size: 20px">++</sup></h3>
 
                 <p>Perm Investasi</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{url('/admin/pembeli')}}" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -75,14 +75,14 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65<sup style="font-size: 20px">++</sup></h3>
+                <h3>0<sup style="font-size: 20px">++</sup></h3>
 
                 <p>Request Jual</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{url('/admin/transaksi')}}" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="" class="small-box-footer">Lihat Detail<i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -93,7 +93,7 @@
           <p class="lead">Website yang menyediakan investasi kambing bagi para investor.</p>
           <hr class="my-4">
           <p>Seseorang akan menjadi orang yang lebih baik jika dalam melakukan pekerjaan selalu melakukan yang terbaik!!!</p>
-          <a class="btn btn-primary btn-lg" href="{{url('/admin/profil')}}" role="button">Lihat Profil</a>
+          <a class="btn btn-primary btn-lg" href="{{url('/peternak/profil')}}" role="button">Lihat Profil</a>
         </div>
 
       <!-- Default box -->

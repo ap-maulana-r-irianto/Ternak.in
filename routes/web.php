@@ -11,15 +11,14 @@
 |
 */
 
-Route::get('/', 'PagesController@login')->middleware('guest');
+Route::get('/', 'PagesController@login');
 Route::get('/logout', 'PagesController@logout');
-Route::get('/create', 'PagesController@create')->middleware('guest');
+Route::get('/create', 'PagesController@create');
 Route::post('/store', 'PagesController@store');
 
 //peternak
 Route::get('/peternak/dashboard', 'PagesControllerPeternak@home');
-Route::get('/peternak/grafik', 'PagesControllerpeternak@grafik');
-Route::get('/peternak/profil', 'PagesControllerpeternak@profil');
+Route::resource('/peternak/profil', 'Profil_Peternak');
 //kambingku
 Route::get('/peternak/carikambingku', 'Kambingku_PeternakController@search');
 Route::resource('/peternak/kambingku', 'Kambingku_PeternakController');
@@ -35,9 +34,8 @@ Route::resource('/peternak/requestjual', 'Requestjual_PeternakController');
 
 
 //admin
-Route::get('/admin/grafik', 'PagesControlleradmin@grafik');
 Route::get('/admin/dashboard', 'PagesControllerAdmin@home');
-Route::get('/admin/profil', 'PagesControllerAdmin@profil');
+Route::resource('/admin/profil', 'Profil_Admin');
 //peternak
 Route::get('/admin/caripeternak', 'Peternak_AdminController@search');
 Route::resource('/admin/peternak', 'Peternak_AdminController');
@@ -53,8 +51,22 @@ Route::resource('/admin/transaksi', 'Transaksi_AdminController');
 
 //investor
 Route::get('/investor/dashboard', 'PagesControllerInvestor@home');
+Route::resource('/investor/profil', 'Profil_Investor');
+//peternak
+Route::get('/investor/caripeternak', 'Peternak_InvestorController@search');
+Route::resource('/investor/peternak', 'Peternak_InvestorController');
+//peternakku
+Route::get('/investor/caripeternakku', 'Peternakku_InvestorController@search');
+Route::resource('/investor/peternakk', 'Peternakku_InvestorController');
+//requestjual
+Route::get('/investor/carirequestjual', 'Requestjual_InvestorController@search');
+Route::resource('/investor/requestjual', 'Requestjual_InvestorController');
+//perminvestasi
+Route::get('/investor/cariperminvestasi', 'Perminvestasi_InvestorController@search');
+Route::resource('/investor/perminvestasi', 'Perminvestasi_InvestorController');
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

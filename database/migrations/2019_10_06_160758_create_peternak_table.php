@@ -20,9 +20,10 @@ class CreatePeternakTable extends Migration
             $table->string('nohp');
             $table->string('noktp')->unique();
             $table->string('alamatpeternakan');
-            $table->string('username')->unique();
+            $table->string('username');
             $table->string('password');
-            $table->string('email');
+            $table->string('email')->unique();
+            $table->string('scanktp');
             $table->rememberToken();
             $table->timestamps();
         });

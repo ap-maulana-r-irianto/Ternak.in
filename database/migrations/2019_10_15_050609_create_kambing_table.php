@@ -15,16 +15,15 @@ class CreateKambingTable extends Migration
     {
         Schema::create('kambing', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('idkambing');
-            $table->string('jeniskambing');
+            $table->string('idkambing')->unique();
             $table->date('tgllahir');
             $table->string('berat');
             $table->string('jeniskelamin');
             $table->string('harga');
+            $table->string('jeniskambing');
             $table->unsignedBigInteger('idpeternak');
             $table->foreign('idpeternak')->references('id')->on('peternak');
-            $table->unsignedBigInteger('idinvestor')->nullable();
-            $table->foreign('idinvestor')->references('id')->on('investor');
+            $table->string('fotokambing');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

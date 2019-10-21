@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Investor;
+use Illuminate\Support\Facades\DB;
+use App\Admin;
 
-class Investor_AdminController extends Controller
+class Profil_Admin extends Controller
 {
-    public function search(){
-        $investor = Investor::all();
-        return view('admin.cariinvestor_admin', ['investor' => $investor]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +16,8 @@ class Investor_AdminController extends Controller
     public function index()
     {
         //
-        $investor = Investor::all();
-        return view('admin.seluruhinvestor_admin', ['investor' => $investor]);
+        $admin = Admin::where('id', '1')->first();
+        return view('admin.profil_admin', ['admin' => $admin]);
     }
 
     /**
@@ -31,7 +28,6 @@ class Investor_AdminController extends Controller
     public function create()
     {
         //
-        return view('admin.tambahinvestor_admin');
     }
 
     /**
@@ -42,36 +38,7 @@ class Investor_AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama'     => ['required'],
-            'alamat'   => ['required'],
-            'nohp'     => ['required', 'max:14'],
-            'noktp'    => ['required', 'size:16', 'unique:investor,username'],
-            'username' => ['required', 'size:6'],
-            'password' => ['required', 'size:10'],
-            'email'    => ['required', 'email', 'unique:investor,email'],
-            'scanktp'  => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
-        ]);
-
-        $file = $request->file('scanktp');
-        $folder = public_path('scanktpinvestor');
-        $file->move($folder, $file->getClientOriginalName());
-
-        // Investor::create($request->all());
-
-        $investor           = new Investor;
-        $investor->nama     = $request->nama;
-        $investor->alamat   = $request->alamat;
-        $investor->nohp     = $request->nohp;
-        $investor->noktp    = $request->noktp;
-        $investor->username = $request->username;
-        $investor->password = $request->password;
-        $investor->email    = $request->email;
-        $investor->scanktp  = $file->getClientOriginalName();
-
-        $investor->save();
-
-        return redirect('/admin/investor')->with('status','Data Investor Berhasil Ditambahkan!');
+        //
     }
 
     /**
@@ -83,8 +50,6 @@ class Investor_AdminController extends Controller
     public function show($id)
     {
         //
-        $investor = Investor::findorfail($id);
-        return view('admin.showinvestor_admin', compact('investor'));
     }
 
     /**
@@ -96,8 +61,8 @@ class Investor_AdminController extends Controller
     public function edit($id)
     {
         //
-        $investor = Investor::findorfail($id);
-        return view('admin.editinvestor_admin', compact('investor'));
+        $admin = Admin::findorfail($id);
+        return view('admin.editprofil_admin', compact('admin'));
     }
 
     /**
@@ -122,10 +87,10 @@ class Investor_AdminController extends Controller
         ]);
 
         $file   = $request->file('scanktp');
-        $folder = public_path('scanktpinvestor');
+        $folder = public_path('scanktpadmin');
         $file->move($folder, $file->getClientOriginalName());
 
-        Investor::where('id', $id)->update([
+        Admin::where('id', $id)->update([
             'nama'     => $request->nama,
             'alamat'   => $request->alamat,
             'nohp'     => $request->nohp,
@@ -135,7 +100,7 @@ class Investor_AdminController extends Controller
             'email'    => $request->email,
             'scanktp'  => $file->getClientOriginalName()
         ]);
-        return redirect('/admin/investor')->with('status','Data Investor Berhasil Diubah!');
+        return redirect('/admin/profil')->with('status','Data Profil Berhasil Diubah!');
     }
 
     /**
@@ -147,7 +112,5 @@ class Investor_AdminController extends Controller
     public function destroy($id)
     {
         //
-        Investor::destroy($id);
-        return redirect('/admin/investor')->with('status','Data Investor Berhasil Dihapus!');
     }
 }

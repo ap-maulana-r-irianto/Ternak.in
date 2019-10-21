@@ -28,7 +28,7 @@
     <div class="container">
 
       <!-- Default box -->
-      <form method="post" action="{{url('/admin/peternak/'.$peternak->id)}}">
+      <form method="post" action="{{url('/admin/peternak/'.$peternak->id)}}" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="form-group">
@@ -81,6 +81,13 @@
             @enderror
           </div>
         </div>
+        <div class="form-group">
+            <label for="fotokambing">Foto Kambing</label>
+            <input type="file" name="fotokambing" class="form-control-file @error('fotokambing') is-invalid @enderror" id="fotokambing">
+            @error('fotokambing')
+              {{ $message }}
+            @enderror
+          </div>
         <button type="submit" name="simpan" class="btn btn-primary">SIMPAN</button>
       </form>
       <!-- /.card -->

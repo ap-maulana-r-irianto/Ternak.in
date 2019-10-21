@@ -25,7 +25,7 @@
     <section class="content">
     <div class="container">
       <!-- Default box -->
-      <form method="POST" action="{{url('/admin/peternak')}}">
+      <form method="POST" action="{{url('/admin/peternak')}}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label for="inputName">Nama</label>
@@ -88,6 +88,13 @@
             {{ $message }}
           @enderror
         </div>
+        <div class="form-group">
+            <label for="scanktp">Scan KTP</label>
+            <input type="file" name="scanktp" class="form-control-file @error('scanktp') is-invalid @enderror" id="scanktp" value="{{old('scanktp')}}">
+            @error('scanktp')
+              {{ $message }}
+            @enderror
+          </div>
         <button type="submit" class="btn btn-primary">Tambah</button>
       </form>
       <!-- /.card -->

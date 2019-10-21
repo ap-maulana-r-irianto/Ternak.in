@@ -1,4 +1,4 @@
-@extends('layouts.template_admin')
+@extends('layouts.template_peternak')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -12,11 +12,8 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Ternak</li>
-              <li class="breadcrumb-item">Data Peternak</li>
-              <li class="breadcrumb-item"><a class="text-dark" href="{{url('/admin/peternak')}}">Seluruh Peternak</a></li>
-              <li class="breadcrumb-item">Detail Peternak</li>
-              <li class="breadcrumb-item active">Ubah Peternak</li>
+              <li class="breadcrumb-item"><a class="text-dark" href="{{url('/peternak/profil')}}">Profil</a></li>
+              <li class="breadcrumb-item active">Ubah Profil</li>
             </ol>
           </div>
         </div>
@@ -28,7 +25,7 @@
     <div class="container">
 
       <!-- Default box -->
-      <form method="post" action="{{url('/admin/peternak/'.$peternak->id)}}" enctype="multipart/form-data">
+      <form method="post" action="{{url('/peternak/profil'.$peternak->id)}}" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="form-group">

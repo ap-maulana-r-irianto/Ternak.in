@@ -42,23 +42,23 @@
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Alamat</b> <a class="float-right">1,322</a>
+                    <b>Alamat</b> <a class="float-right">Jember</a>
                   </li>
                   <li class="list-group-item">
-                    <b>No. HP</b> <a class="float-right">543</a>
+                    <b>No. HP</b> <a class="float-right">08123456789</a>
                   </li>
                   <li class="list-group-item">
-                    <b>No. KTP</b> <a class="float-right">13,287</a>
+                    <b>No. KTP</b> <a class="float-right">1209346587091265</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Username</b> <a class="float-right">543</a>
+                    <b>Username</b> <a class="float-right">monik</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Email</b> <a class="float-right">13,287</a>
+                    <b>Email</b> <a class="float-right">monik@gmail.com</a>
                   </li>
                 </ul>
 
-                <a href="#" class="btn btn-primary btn-block"><b>Edit</b></a>
+                <a href="{{url('admin/profil/'.$admin->id.'/edit')}}" class="btn btn-primary btn-block"><b>Edit</b></a>
               </div>
               <!-- /.card-body -->
             </div>

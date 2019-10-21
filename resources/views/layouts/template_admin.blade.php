@@ -49,12 +49,12 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="" class="brand-link">
       <img src="{{asset('dist/img/sheep.png')}}"
            alt="Ternak.in Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">TERNAK.IN</span>
+      <span class="brand-text font-weight-light">ADMIN</span>
     </a>
 
     <!-- Sidebar -->
@@ -65,7 +65,7 @@
           <img src="{{asset('dist/img/avatar3.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nur Hidayah Monic</a>
+          <a href="" class="d-block">Nur Hidayah Monic</a>
         </div>
       </div>
 
@@ -86,14 +86,6 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Profil
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="{{url('/admin/grafik')}}" class="nav-link @yield('grafik')">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Grafik
               </p>
             </a>
           </li>
@@ -156,35 +148,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Data Pembeli
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/admin/caripembeli')}}" class="nav-link @yield('caripembeli')">
-                  <i class="nav-icon fas fa-edit"></i>
-                  <p>Cari Pembeli</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('/admin/pembeli/create')}}" class="nav-link @yield('tambahpembeli')">
-                  <i class="nav-icon fas fa-table"></i>
-                  <p>Tambah Pembeli</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('/admin/pembeli')}}" class="nav-link @yield('seluruhpembeli')">
-                  <i class="nav-icon fas fa-table"></i>
-                  <p>Seluruh Pembeli</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+      
           <li class="nav-item has-treeview">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
