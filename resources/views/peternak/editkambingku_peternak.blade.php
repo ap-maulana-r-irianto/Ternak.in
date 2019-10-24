@@ -28,62 +28,63 @@
     <div class="container">
 
       <!-- Default box -->
-      <form method="post" action="{{url('/admin/peternak/'.$peternak->id)}}" enctype="multipart/form-data">
+      <form method="post" action="{{url('/peternak/kambingku/'.$kambing->id)}}" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="form-group">
           <label for="inputName">ID Kambing</label>
-          <input type="text" name="idkambing" class="form-control @error('idkambing') is-invalid @enderror" id="inputName" placeholder="idkambing" value="{{$kambing->idkambing}}">
+          <input type="text" name="idkambing" class="form-control @error('idkambing') is-invalid @enderror" id="inputName" placeholder="ID Kambing" value="{{$kambing->idkambing}}">
           @error('idkambing')
             {{ $message }}
           @enderror
         </div>
         <div class="form-group">
-          <label for="inputAddress">Jenis Kambing</label>
-          <input type="text" name="jeniskambing" class="form-control @error('jeniskambing') is-invalid @enderror" id="inputAddress" placeholder="jeniskambing" value="{{$kambing->jeniskambing}}">
-          @error('jeniskambing')
+          <label for="inputEmail4">Tanggal Lahir</label>
+          <input type="date" name="tgllahir" class="form-control @error('tgllahir') is-invalid @enderror" id="inputEmail4" placeholder="No. HP" value="{{$kambing->tgllahir}}">
+          @error('tgllahir')
             {{ $message }}
           @enderror
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputEmail4">Tanggal Lahir</label>
-            <input type="date" name="tgllahir" class="form-control @error('tgllahir') is-invalid @enderror" id="inputEmail4" placeholder="No. HP" value="{{$kambing->tgllahir}}">
-            @error('tgllahir')
-              {{ $message }}
-            @enderror
-          </div>
-          <div class="form-group col-md-6">
             <label for="inputPassword4">Berat</label>
-            <input type="number" name="berat" class="form-control @error('berat') is-invalid @enderror" id="inputPassword4" placeholder="No. KTP" value="{{$kambing->berat}}">
+            <input type="number" name="berat" class="form-control @error('berat') is-invalid @enderror" id="inputPassword4" placeholder="Berat" value="{{$kambing->berat}}">
             @error('berat')
               {{ $message }}
             @enderror
           </div>
-        </div>
-        <div class="form-group">
+        <div class="form-group col-md-6">
           <label for="inputAddress2">Jenis Kelamin</label>
           <select name="jeniskelamin" id="inputAddress2" class="form-control @error('jeniskelamin') is-invalid @enderror">
               <option value="{{$kambing->jeniskelamin}}" selected>{{$kambing->jeniskelamin}}</option>
-              <option value="lakilaki">Laki-laki</option>
-              <option value="perempuan">Perempuan</option>
+              <option value="Jantan">Jantan</option>
+              <option value="Betina">Betina</option>
             </select>
           @error('jeniskelamin')
             {{ $message }}
           @enderror
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="harga">Harga</label>
-            <input type="number" name="harga" class="form-control @error('harga') is-invalid @enderror" id="harga" placeholder="harga" value="{{$kambing->harga}}">
-            @error('harga')
+        </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="harga">Harga</label>
+              <input type="number" name="harga" class="form-control @error('harga') is-invalid @enderror" id="harga" placeholder="harga" value="{{$kambing->harga}}">
+              @error('harga')
+                {{ $message }}
+              @enderror
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Jenis Kambing</label>
+            <input type="text" name="jeniskambing" class="form-control @error('jeniskambing') is-invalid @enderror" id="inputAddress" placeholder="jeniskambing" value="{{$kambing->jeniskambing}}">
+            @error('jeniskambing')
               {{ $message }}
             @enderror
           </div>
-        </div>
-        <div class="form-group">
+          <input type="hidden" name="idpeternak" value="1">
+          <div class="form-group">
             <label for="fotokambing">Foto Kambing</label>
-            <input type="file" name="fotokambing" class="form-control-file @error('fotokambing') is-invalid @enderror" id="fotokambing">
+            <input type="file" name="fotokambing" class="form-control-file @error('fotokambing') is-invalid @enderror" id="fotokambing" value="{{$kambing->fotokambing}}">
             @error('fotokambing')
               {{ $message }}
             @enderror

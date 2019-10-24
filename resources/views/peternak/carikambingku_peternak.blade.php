@@ -51,7 +51,7 @@
                 <td>{{$k->harga}}</td>
                 <td>{{$k->jeniskambing}}</td>
                 <td>{{$k->idpeternak}}</td>
-                <td>{{$k->fotokambing}}</td>
+                <td><a href="" class="badge badge-secondary">Lihat</a></td>
                 <td>
                   <a href="{{url('/peternak/kambingku/'.$k->id.'/edit')}}" class="badge badge-success">UBAH</a>
                     <form class="d-inline-block" action="{{url('/peternak/kambingku/'.$k->id)}}" method="POST">

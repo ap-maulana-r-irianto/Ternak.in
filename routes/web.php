@@ -31,6 +31,8 @@ Route::resource('/peternak/perminvestasi', 'Perminvestasi_PeternakController');
 //requestjual
 Route::get('/peternak/carirequestjual', 'Requestjual_PeternakController@search');
 Route::resource('/peternak/requestjual', 'Requestjual_PeternakController');
+//perkembangan
+Route::resource('/peternak/perkembangan', 'Perkembangan_PeternakController');
 
 
 //admin

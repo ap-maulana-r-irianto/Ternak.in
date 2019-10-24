@@ -36,7 +36,8 @@ class Kambingku_PeternakController extends Controller
     public function create()
     {
         //
-        return view('peternak.tambahkambingku_peternak');
+        $peternak = Peternak::all();
+        return view('peternak.tambahkambingku_peternak', ['peternak' => $peternak]);
     }
 
     /**
@@ -103,7 +104,7 @@ class Kambingku_PeternakController extends Controller
     {
         //
         $kambing = Kambing::findorfail($id);
-        return view('peternak.detailkambingku_peternak', compact('kambing'));
+        return view('peternak.editkambingku_peternak', compact('kambing'));
     }
 
     /**

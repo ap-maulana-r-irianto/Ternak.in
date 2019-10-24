@@ -8,13 +8,14 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Seluruh Kambingku</h1>
+                <h1>Perkembangan Kambingku</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item">Ternak</li>
                   <li class="breadcrumb-item">Data Kambingku</li>
-                  <li class="breadcrumb-item active">Seluruh Kambingku</li>
+                  <li class="breadcrumb-item">Seluruh Kambingku</li>
+                  <li class="breadcrumb-item active">Perkembangan Kambingku</li>
                 </ol>
               </div>
             </div>
@@ -35,33 +36,25 @@
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">ID Kambing</th>
-                <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Berat (/kg)</th>
-                <th scope="col">Jenis Kelamin</th>
-                <th scope="col">Harga (Rp)</th>
-                <th scope="col">Jenis Kambing</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Perkembangan</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Kondisi</th>
+                <th scope="col">Keterangan</th>
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($kambing as $k)
+              @foreach($perkembangan as $k)
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$k->idkambing}}</td>
-                <td>{{$k->tgllahir}}</td>
                 <td>{{$k->berat}}</td>
-                <td>{{$k->jeniskelamin}}</td>
-                <td>{{$k->harga}}</td>
-                <td>{{$k->jeniskambing}}</td>
-                <td><a href="" class="badge badge-secondary">Lihat</a></td>
+                <td>{{$k->tanggal}}</td>
+                <td>{{$k->kondisi}}</td>
+                <td>{{$k->keterangan}}</td>
                 <td>
-                  <a href="{{url('/peternak/perkembangan/'.$k->id)}}" class="badge badge-primary">PERKEMBANGAN</a>
-                </td>
-                <td>
-                  <a href="{{url('/peternak/kambingku/'.$k->id.'/edit')}}" class="badge badge-success">UBAH</a>
-                    <form class="d-inline-block" action="{{url('/peternak/kambingku/'.$k->id)}}" method="POST">
+                  <a href="{{url('/peternak/perkembangan/'.$k->id.'/edit')}}" class="badge badge-success">UBAH</a>
+                    <form class="d-inline-block" action="{{url('/peternak/perkembangan/'.$k->id)}}" method="POST">
                       @csrf
                       @method('delete')
                         <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>

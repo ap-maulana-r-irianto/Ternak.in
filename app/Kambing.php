@@ -12,7 +12,11 @@ class Kambing extends Model
     protected $fillable = ['idkambing','jeniskambing','tgllahir','berat','jeniskelamin','harga','idpeternak','fotokambing'];
 
     public function peternak(){
-    	return $this->belongsTo('App\Peternak');
+    	return $this->hasMany('App\Peternak');
+    }
+
+    public function perkembangan(){
+    	return $this->belongsTo('App\Perkembangan');
     }
     
     
