@@ -49,11 +49,11 @@
                 <td>{{$invstr->noktp}}</td>
                 <td>{{$invstr->username}}</td>
                 <td>
-                  <a href="{{url('/admin/investor/'.$invstr->id)}}" class="badge badge-success">DETAIL</a>
+                  <a href="{{url('/admin/investor/'.$invstr->id)}}" class="btn btn-success">DETAIL</a>
                     <form class="d-inline-block" action="{{url('/admin/investor/'.$invstr->id)}}" method="POST">
                       @csrf
                       @method('delete')
-                        <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
+                        <button type="submit" class="btn btn-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
                     </form>
                 </td>
               </tr>

@@ -32,6 +32,7 @@ Route::resource('/peternak/perminvestasi', 'Perminvestasi_PeternakController');
 Route::get('/peternak/carirequestjual', 'Requestjual_PeternakController@search');
 Route::resource('/peternak/requestjual', 'Requestjual_PeternakController');
 //perkembangan
+Route::get('/peternak/tambah/{id}', 'Perkembangan_PeternakController@buat');
 Route::resource('/peternak/perkembangan', 'Perkembangan_PeternakController');
 
 
@@ -66,6 +67,8 @@ Route::resource('/investor/requestjual', 'Requestjual_InvestorController');
 //perminvestasi
 Route::get('/investor/cariperminvestasi', 'Perminvestasi_InvestorController@search');
 Route::resource('/investor/perminvestasi', 'Perminvestasi_InvestorController');
+
+Route::resource('/investor/kambing', 'Kambing_InvestorController');
 
 
 

@@ -33,7 +33,7 @@
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
                        src="{{asset('scanktppeternak/'.$peternak->scanktp)}}"
-                       alt="User profile picture">
+                       alt="User profile picture" width="300px">
                 </div>
 
                 <h3 class="profile-username text-center">{{$peternak->nama}}</h3>
@@ -64,44 +64,7 @@
             </div>
             <!-- /.card -->
 
-            <!-- About Me Box -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Tentang Saya</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                <p class="text-muted">
-                  Information System, Computer Science in Jember University
-                </p>
-
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Jember, Jawa Timur</p>
-
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  <span class="tag tag-danger">Administrator</span>
-                  <span class="tag tag-success">Manage</span>
-                  <span class="tag tag-info">Family</span>
-                  <span class="tag tag-warning">Responsible</span>
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Satu-satunya cara untuk melakukan pekerjaan yang hebat adalah dengan mencintai apa yang kamu lakukan.</p>
-              </div>
-              <!-- /.card-body -->
-            </div>
+            
             <!-- /.card -->
           </div>
       

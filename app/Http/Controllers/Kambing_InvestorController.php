@@ -3,26 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Peternak;
+use App\Kambing;
 
-class Peternak_InvestorController extends Controller
+class Kambing_InvestorController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function search(){
-        //
-        $peternak = Peternak::all();
-        return view('investor.caripeternak_investor', ['peternak' => $peternak]);
-    }
-
     public function index()
     {
         //
-        $peternak = Peternak::all();
-        return view('investor.seluruhpeternak_investor', ['peternak' => $peternak]);
     }
 
     /**
@@ -55,6 +47,8 @@ class Peternak_InvestorController extends Controller
     public function show($id)
     {
         //
+        $kambing = Kambing::where('idpeternak', '1')->get();
+        return view('investor.showkambing_investor', ['kambing' => $kambing]);
     }
 
     /**

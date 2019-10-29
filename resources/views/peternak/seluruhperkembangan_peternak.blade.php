@@ -31,6 +31,11 @@
                   {{ session('status') }}
               </div>
           @endif
+  
+          <a href="{{url('peternak/tambah/'.$kambing->id)}}" class="btn btn-danger btn-lg">Tambah Perkembangan</a>
+          @if (is_null($perkembangan))
+
+          @else
           <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -53,17 +58,18 @@
                 <td>{{$k->kondisi}}</td>
                 <td>{{$k->keterangan}}</td>
                 <td>
-                  <a href="{{url('/peternak/perkembangan/'.$k->id.'/edit')}}" class="badge badge-success">UBAH</a>
+                  <a href="{{url('/peternak/perkembangan/'.$k->id.'/edit')}}" class="btn btn-success">UBAH</a>
                     <form class="d-inline-block" action="{{url('/peternak/perkembangan/'.$k->id)}}" method="POST">
                       @csrf
                       @method('delete')
-                        <button type="submit" class="badge badge-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
+                        <button type="submit" class="btn btn-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
                     </form>
                 </td>
               </tr>
               @endforeach
             </tbody>
           </table>
+          @endif
       <!-- /.card -->
     </div>
     </section>

@@ -1,4 +1,4 @@
-@extends('layouts.template_admin')
+@extends('layouts.template_investor')
 @section('seluruhpeternak', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -32,15 +32,16 @@
                   {{ session('status') }}
               </div>
           @endif
-
+          
           <table class="table table-hover">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
-                <th scope="col">No. KTP</th>
-                <th scope="col">Username</th>
-                <th scope="col">Aksi</th>
+                <th scope="col">Scan KTP</th>
+                <th scope="col">No. HP</th>
+                <th scope="col">Alamat Peternakan</th>
+                <th scope="col">Kambing</th>
               </tr>
             </thead>
             <tbody>
@@ -48,20 +49,16 @@
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$ptrnk->nama}}</td>
-                <td>{{$ptrnk->noktp}}</td>
-                <td>{{$ptrnk->username}}</td>
-                <td>
-                  <a href="{{url('/admin/peternak/'.$ptrnk->id)}}" class="btn btn-success">DETAIL</a>
-                    <form class="d-inline-block" action="{{url('/admin/peternak/'.$ptrnk->id)}}" method="POST">
-                      @csrf
-                      @method('delete')
-                        <button type="submit" class="btn btn-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>
-                    </form>
-                </td>
+                <td><a href="" class="btn btn-primary">Lihat</a></td>
+                <td>{{$ptrnk->nohp}}</td>
+                <td>{{$ptrnk->alamatpeternakan}}</td>
+                <td><a href="{{url('/investor/kambing/'.$ptrnk->id)}}" class="btn btn-danger">Lihat</a></td>
+                
               </tr>
               @endforeach
             </tbody>
           </table>
+          
       <!-- /.card -->
     </div>
 

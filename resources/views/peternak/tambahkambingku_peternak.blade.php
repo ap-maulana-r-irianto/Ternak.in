@@ -51,7 +51,7 @@
           </div>
         <div class="form-group col-md-6">
           <label for="inputAddress2">Jenis Kelamin</label>
-          <select name="jeniskelamin" id="inputAddress2" class="form-control @error('jeniskelamin') is-invalid @enderror">
+          <select name="jeniskelamin" id="inputAddress2" class="form-control @error('jeniskelamin') is-invalid @enderror" value="{{old('jeniskelamin')}}">
               <option selected disabled>--Pilih--</option>
               <option value="Jantan">Jantan</option>
               <option value="Betina">Betina</option>

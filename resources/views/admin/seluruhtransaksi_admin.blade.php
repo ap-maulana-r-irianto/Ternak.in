@@ -41,7 +41,7 @@
                 <td></td>
                 <td></td>
                 <td>
-                  <a href="" class="badge badge-success">DETAIL</a>
+                  <a href="" class="btn btn-success">DETAIL</a>
                 </td>
               </tr>
             </tbody>

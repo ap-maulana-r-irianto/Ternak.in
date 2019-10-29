@@ -94,13 +94,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/investor/tambahpeternak')}}" class="nav-link @yield('dashboard')">
+                <a href="{{url('/investor/peternak/create')}}" class="nav-link @yield('tambahpeternak')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Tambah Peternak</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/investor/seluruhpeternak')}}" class="nav-link @yield('dashboard')">
+                <a href="{{url('/investor/peternak')}}" class="nav-link @yield('seluruhpeternak')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Peternak</p>
                 </a>
@@ -117,7 +117,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/investor/peternakku')}}" class="nav-link @yield('caripeternakku')">
+                <a href="{{url('/investor/caripeternakku')}}" class="nav-link @yield('caripeternakku')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Peternakku</p>
                 </a>
@@ -140,7 +140,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/investor/requestjual')}}" class="nav-link @yield('carirequestjual')">
+                <a href="{{url('/investor/carirequestjual')}}" class="nav-link @yield('carirequestjual')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Request Jual</p>
                 </a>
@@ -169,7 +169,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/investor/perminvestasi')}}" class="nav-link @yield('cariperminvestasi')">
+                <a href="{{url('/investor/cariperminvestasi')}}" class="nav-link @yield('cariperminvestasi')">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Cari Perm. Investasi</p>
                 </a>

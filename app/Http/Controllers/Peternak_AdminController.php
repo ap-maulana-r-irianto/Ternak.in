@@ -87,15 +87,15 @@ class Peternak_AdminController extends Controller
         // Peternak::create($request->all());
 
         $peternak = new Peternak;
-        $peternak->nama = $request->nama;
-        $peternak->alamat = $request->alamat;
-        $peternak->nohp = $request->nohp;
-        $peternak->noktp = $request->noktp;
+        $peternak->nama             = $request->nama;
+        $peternak->alamat           = $request->alamat;
+        $peternak->nohp             = $request->nohp;
+        $peternak->noktp            = $request->noktp;
         $peternak->alamatpeternakan = $request->alamatpeternakan;
-        $peternak->username = $request->username;
-        $peternak->password = $request->password;
-        $peternak->email = $request->email;
-        $peternak->scanktp = $file->getClientOriginalName();
+        $peternak->username         = $request->username;
+        $peternak->password         = $request->password;
+        $peternak->email            = $request->email;
+        $peternak->scanktp          = $file->getClientOriginalName();
 
         $peternak->save();
 
