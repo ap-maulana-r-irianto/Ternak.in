@@ -11,10 +11,18 @@
 |
 */
 
-Route::get('/', 'PagesController@login');
+Route::get('/', 'PagesController@awal');
+Route::get('/login', 'PagesController@awal');
+Route::post('/masuk', 'PagesController@login');
 Route::get('/logout', 'PagesController@logout');
-Route::get('/create', 'PagesController@create');
-Route::post('/store', 'PagesController@store');
+Route::get('/create/peternak', 'PagesController@createpeternak');
+Route::get('/create/investor', 'PagesController@createinvestor');
+Route::get('/create/pembeli', 'PagesController@createpembeli');
+Route::post('/store/peternak', 'PagesController@storepeternak');
+Route::post('/store/investor', 'PagesController@storeinvestor');
+Route::post('/store/pembeli', 'PagesController@storepembeli');
+
+// Route::group(['middleware' => ['auth:peternak']], function(){
 
 //peternak
 Route::get('/peternak/dashboard', 'PagesControllerPeternak@home');
@@ -35,7 +43,9 @@ Route::resource('/peternak/requestjual', 'Requestjual_PeternakController');
 Route::get('/peternak/tambah/{id}', 'Perkembangan_PeternakController@buat');
 Route::resource('/peternak/perkembangan', 'Perkembangan_PeternakController');
 
+// });
 
+// Route::group(['middleware' => ['auth:admin']], function(){
 //admin
 Route::get('/admin/dashboard', 'PagesControllerAdmin@home');
 Route::resource('/admin/profil', 'Profil_Admin');
@@ -52,6 +62,9 @@ Route::resource('/admin/pembeli', 'Pembeli_AdminController');
 Route::get('/admin/caritransaksi', 'Transaksi_AdminController@search');
 Route::resource('/admin/transaksi', 'Transaksi_AdminController');
 
+// });
+
+// Route::group(['middleware' => ['auth:investor']], function(){
 //investor
 Route::get('/investor/dashboard', 'PagesControllerInvestor@home');
 Route::resource('/investor/profil', 'Profil_Investor');
@@ -70,8 +83,11 @@ Route::resource('/investor/perminvestasi', 'Perminvestasi_InvestorController');
 
 Route::resource('/investor/kambing', 'Kambing_InvestorController');
 
+// });
+
+Route::get('/home', 'HomeController@index');
+Route::get('/welcome', 'HomeController@welcome');
 
 
 // Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');

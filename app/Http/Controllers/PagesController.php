@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Auth;
 class PagesController extends Controller
 {
     //
+    public function awal(){
+        return view('login');
+    }
     public function login(Request $request){
     	$dataadmin = Admin::where('email', $request->email)->where('password', $request->password)->get();
     	$datapeternak = Peternak::where('email', $request->email)->where('password', $request->password)->get();
@@ -37,11 +40,24 @@ class PagesController extends Controller
 
     }
 
-    public function create(){
-    	return view('register');
+    public function createpeternak(){
+        $user = 'peternak';
+    	return view('register', ['user' => $user]);
+    }
+    public function createinvestor(){
+        $user = 'investor';
+        return view('register', ['user' => $user]);
+    }
+    public function createpembeli(){
+        $user = 'pembeli';
+        return view('register', ['user' => $user]);
+    }
+    public function createadmin(){
+        $user = 'admin';
+        return view('register', ['user' => $user]);
     }
 
-    public function store(Request $request){
+    public function storepeternak(Request $request){
     	$request->validate([
             'nama' => ['required'],
             'alamat' => ['required'],
@@ -54,22 +70,67 @@ class PagesController extends Controller
 
         Admin::create($request->all());
 
-        return redirect('/');
+        return redirect('login');
+    }
+    public function storeinvestor(Request $request){
+        $request->validate([
+            'nama' => ['required'],
+            'alamat' => ['required'],
+            'nohp' => ['required', 'max:14'],
+            'noktp' => ['required', 'size:16', 'unique:investor,username'],
+            'username' => ['required', 'size:6', 'unique:investor,username'],
+            'password' => ['required', 'size:10'],
+            'email' => ['required', 'email']
+        ]);
+
+        Admin::create($request->all());
+
+        return redirect('login');
+    }
+    public function storepembeli(Request $request){
+        $request->validate([
+            'nama' => ['required'],
+            'alamat' => ['required'],
+            'nohp' => ['required', 'max:14'],
+            'noktp' => ['required', 'size:16', 'unique:investor,username'],
+            'username' => ['required', 'size:6', 'unique:investor,username'],
+            'password' => ['required', 'size:10'],
+            'email' => ['required', 'email']
+        ]);
+
+        Admin::create($request->all());
+
+        return redirect('login');
+    }
+    public function storeadmin(Request $request){
+        $request->validate([
+            'nama' => ['required'],
+            'alamat' => ['required'],
+            'nohp' => ['required', 'max:14'],
+            'noktp' => ['required', 'size:16', 'unique:investor,username'],
+            'username' => ['required', 'size:6', 'unique:investor,username'],
+            'password' => ['required', 'size:10'],
+            'email' => ['required', 'email']
+        ]);
+
+        Admin::create($request->all());
+
+        return redirect('login');
     }
 
     public function logout(){
     	if (Auth::guard('admin')->check()) {
     		Auth::guard('admin')->logout();
-    		return redirect('/');
+    		return view('login');
     	}elseif (Auth::guard('peternak')->check()) {
     		Auth::guard('peternak')->logout();
-    		return redirect('/');
+    		return view('login');
     	}elseif (Auth::guard('investor')->check()) {
     		Auth::guard('investor')->logout();
-    		return redirect('/');
+    		return view('login');
     	}elseif (Auth::guard('pembeli')->check()) {
     		Auth::guard('pembeli')->logout();
-    		return redirect('/');
+    		return view('login');
     	}
 
     

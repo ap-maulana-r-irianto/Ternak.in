@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>TERNAK.IN</title>
+        <link rel="icon" type="image/png" href="{{asset('dist/img/sheep.png')}}">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -12,8 +13,11 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                /*background-color: #fff;*/
+                background-image: url("assets/images/goat.JPG");
+                background-repeat: no-repeat;
+                background-size: cover;
+                color: white;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -35,6 +39,7 @@
             }
 
             .top-right {
+                color: white;
                 position: absolute;
                 right: 10px;
                 top: 18px;
@@ -49,7 +54,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: white;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -65,33 +70,33 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            <!-- @if (Route::has('login')) -->
                 <div class="top-right links">
-                    @auth
+                    <!-- @auth
                         <a href="{{ url('/home') }}">Home</a>
-                    @else
+                    @else -->
                         <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
+                        <!-- @if (Route::has('register')) -->
                             <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                        <!-- @endif
+                    @endauth -->
                 </div>
-            @endif
+            <!-- @endif -->
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    TERNAK.IN
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="">Praktis</a>
+                    <a href="">Cepat</a>
+                    <a href="">Aman</a>
+                    <a href="">Terpercaya</a>
+                    <a href="">Lengkap</a>
+                    <a href="">Terintegrasi</a>
+                    <a href="">Handal</a>
                 </div>
             </div>
         </div>

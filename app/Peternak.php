@@ -13,6 +13,6 @@ class Peternak extends Model
     protected $fillable = ['nama','alamat','nohp','noktp','alamatpeternakan','username','password','email','scanktp'];
 
     public function kambing(){
-    	return $this->belongsTo('App\Kambing');
+    	return $this->hasMany('App\Kambing');
     }
 }

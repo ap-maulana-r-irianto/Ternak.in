@@ -39,7 +39,7 @@
           </div>
           <div class="form-group col-md-6">
             <label for="inputEmail4">Tanggal</label>
-            <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" id="inputEmail4" placeholder="No. HP" value="{{old('tanggal')}}">
+            <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" id="inputEmail4" placeholder="tanggal" value="{{old('tanggal')}}">
             @error('tanggal')
               {{ $message }}
             @enderror
@@ -63,7 +63,7 @@
             @enderror
           </div>
           
-        <button type="submit" class="btn btn-primary">Tambah</button>
+        <button type="submit" class="btn btn-primary">TAMBAH</button>
       </form>
       <!-- /.card -->
     </div>

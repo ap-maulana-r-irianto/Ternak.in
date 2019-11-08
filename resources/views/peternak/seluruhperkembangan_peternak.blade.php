@@ -33,9 +33,7 @@
           @endif
   
           <a href="{{url('peternak/tambah/'.$kambing->id)}}" class="btn btn-danger btn-lg">Tambah Perkembangan</a>
-          @if (is_null($perkembangan))
-
-          @else
+          <br><br>
           <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -69,7 +67,6 @@
               @endforeach
             </tbody>
           </table>
-          @endif
       <!-- /.card -->
     </div>
     </section>

@@ -51,14 +51,14 @@ class Perkembangan_PeternakController extends Controller
             'berat'      => ['required'],
             'tanggal'    => ['required', 'date'],
             'kondisi'    => ['required'],
-            'keterangan' => []
+            'keterangan' => ['required']
             ]);
 
         $id = $request->idkambing;
 
         // Kambing::create($request->all());
 
-        $kambing = new Kambing;
+        $kambing = new Perkembangan;
         $kambing->idkambing  = $request->idkambing;
         $kambing->berat      = $request->berat;
         $kambing->tanggal    = $request->tanggal;
@@ -80,7 +80,7 @@ class Perkembangan_PeternakController extends Controller
     {
         //
         $kambing = Kambing::findorfail($id);
-        $perkembangan = Perkembangan::where("idkambing", "$id")->first();
+        $perkembangan = Perkembangan::where("idkambing", "$id")->get();
 
         return view('peternak.seluruhperkembangan_peternak', ['perkembangan' => $perkembangan, 'kambing' => $kambing]);
     }
@@ -94,6 +94,8 @@ class Perkembangan_PeternakController extends Controller
     public function edit($id)
     {
         //
+        $perkembangan = Perkembangan::findorfail($id);
+        return view('peternak.editperkembangan_peternak', ['perkembangan' => $perkembangan]);
     }
 
     /**
@@ -106,6 +108,27 @@ class Perkembangan_PeternakController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'idkambing'  => ['required'],
+            'berat'      => ['required'],
+            'tanggal'    => ['required', 'date'],
+            'kondisi'    => ['required'],
+            'keterangan' => ['required']
+            ]);
+
+        $id = $request->idkambing;
+
+        // Kambing::create($request->all());
+
+        Perkembangan::where('id', $id)->update([
+            'idkambing'  => $request->idkambing,
+            'berat'      => $request->berat,
+            'tanggal'    => $request->tanggal,
+            'kondisi'    => $request->kondisi,
+            'keterangan' => $request->keterangan
+            ]);
+
+        return redirect('/peternak/perkembangan/'.$id)->with('status','Data Perkembangan Berhasil Diubah!');
     }
 
     /**

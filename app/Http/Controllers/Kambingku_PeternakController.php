@@ -124,7 +124,7 @@ class Kambingku_PeternakController extends Controller
             'jeniskelamin' => ['required'],
             'harga'        => ['required'],
             'jeniskambing' => ['required'],
-            'idpeternak' => ['required'],
+            'idpeternak'   => ['required'],
             'fotokambing'  => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
             ]);
 

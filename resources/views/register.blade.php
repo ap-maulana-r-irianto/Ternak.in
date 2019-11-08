@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>TERNAK.IN | Register</title>
+  <link rel="icon" type="image/png" href="{{asset('dist/img/sheep.png')}}">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,23 +22,29 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>TERNAK.</b>IN</a>
+    <a href="{{url('/')}}"><b>TERNAK.</b>IN</a>
   </div>
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Daftar Akun Baru</p>
-
-      <form action="{{url('store')}}" method="post">
+      <p class="register-box-msg">Daftar Akun {{$user}} Baru</p>
+      
+      @if ($user == 'peternak')
+      <form action="{{url('storepeternak')}}" method="post">
+      @elseif ($user == 'investor')
+      <form action="{{url('storeinvestor')}}" method="post">
+      @else
+      <form action="{{url('storepembeli')}}" method="post">
+      @endif
         @csrf
-        <div class="input-group mb-3">
+        <div class="form-group">
           <label for="inputName">Nama</label>
           <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="inputName" placeholder="Nama" value="{{old('nama')}}">
           @error('nama')
             {{ $message }}
           @enderror
         </div>
-        <div class="input-group mb-3">
+        <div class="form-group">
           <label for="inputAddress">Alamat</label>
           <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" id="inputAddress" placeholder="Alamat" value="{{old('alamat')}}">
           @error('alamat')
@@ -45,14 +52,14 @@
           @enderror
         </div>
         <div class="form-row">
-          <div class="input-group mb-3">
+          <div class="form-group col-md-6">
             <label for="inputEmail4">No. HP</label>
             <input type="number" name="nohp" class="form-control @error('nohp') is-invalid @enderror" id="inputEmail4" placeholder="No. HP" value="{{old('nohp')}}">
             @error('nohp')
               {{ $message }}
             @enderror
           </div>
-          <div class="input-group mb-3">
+          <div class="form-group col-md-6">
             <label for="inputPassword4">No. KTP</label>
             <input type="number" name="noktp" class="form-control @error('noktp') is-invalid @enderror" id="inputPassword4" placeholder="No. KTP" value="{{old('noktp')}}">
             @error('noktp')
@@ -60,15 +67,24 @@
             @enderror
           </div>
         </div>
+        @if ($user == 'peternak')
+        <div class="form-group">
+          <label for="inputAddress">Alamat Peternakan</label>
+          <input type="text" name="alamatpeternakan" class="form-control @error('alamatpeternakan') is-invalid @enderror" id="inputAddress" placeholder="Alamat Peternakan" value="{{old('alamatpeternakan')}}">
+          @error('alamat')
+            {{ $message }}
+          @enderror
+        </div>
+        @endif
         <div class="form-row">
-          <div class="input-group mb-3">
+          <div class="form-group col-md-6">
             <label for="username">Username</label>
             <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" value="{{old('username')}}">
             @error('username')
               {{ $message }}
             @enderror
           </div>
-          <div class="input-group mb-3">
+          <div class="form-group col-md-6">
             <label for="password">Password</label>
             <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" value="{{old('password')}}">
             @error('password')
@@ -76,7 +92,7 @@
             @enderror
           </div>
           </div>
-            <div class="input-group mb-3">
+            <div class="form-group">
               <label for="exampleInputEmail1">Email</label>
               <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" value="{{old('email')}}">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -84,16 +100,35 @@
                 {{ $message }}
               @enderror
             </div>
+            <div class="form-group">
+              <label for="scanktp">Scan KTP</label>
+              <input type="file" name="scanktp" class="form-control-file @error('scanktp') is-invalid @enderror" id="scanktp" value="{{old('scanktp')}}">
+              @error('scanktp')
+                {{ $message }}
+              @enderror
+          </div>
+          <!-- /.col -->
+          <div class="row">
+          <div class="col-8">
+            <!-- <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Ingat Saya
+              </label>
+            </div> -->
+          </div>
           <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block btn-flat">Daftar</button>
           </div>
           <!-- /.col -->
         </div>
+          <!-- /.col -->
+        </div>
       </form>
 
 
-      <a href="login.html" class="text-center">Saya sudah punya akun</a>
+      <a href="{{url('login')}}" class="text-center">Saya sudah punya akun</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
