@@ -153,7 +153,7 @@ class Kambingku_PeternakController extends Controller
      */
     public function destroy($id)
     {
-        //Peternak::destroy($id);
+        Peternak::destroy($id);
         return redirect('/peternak/kambingku')->with('status','Data Kambing Berhasil Dihapus!');
     }
 }

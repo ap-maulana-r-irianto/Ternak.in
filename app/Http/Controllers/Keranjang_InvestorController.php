@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Kambing;
-use App\Peternak;
-use App\Investor;
 
-class Investorku_PeternakController extends Controller
+class Keranjang_InvestorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +15,8 @@ class Investorku_PeternakController extends Controller
     public function index()
     {
         //
-        $investor = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idpeternak',1)->where('kambing.persetujuan1','true')->where('kambing.persetujuan2','true')->get();
-        return view('peternak.seluruhinvestorku_peternak', ['investor' => $investor]);
+        $kambing = Kambing::where('idinvestor', '1')->where('permintaan1', true)->where('permintaan2', null)->get();
+        return view('investor.keranjang_investor', ['kambing' => $kambing]);
     }
 
     /**
@@ -52,8 +49,6 @@ class Investorku_PeternakController extends Controller
     public function show($id)
     {
         //
-        $kambing = Kambing::where('id',$id)->get();
-        return view('peternak.seluruhkambinginvestorku_peternak', ['kambing' => $kambing]);
     }
 
     /**
@@ -77,6 +72,12 @@ class Investorku_PeternakController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Kambing::where('id', $id)->update([
+            'idinvestor' => '1',
+            'permintaan1' => true
+        ]);
+
+        return redirect('/investor/peternak')->with('status','Data Kambing Berhasil Ditambahkan ke Keranjang!');
     }
 
     /**
@@ -88,5 +89,10 @@ class Investorku_PeternakController extends Controller
     public function destroy($id)
     {
         //
+        Kambing::where('id', $id)->update([
+            'idinvestor' => null,
+            'permintaan1' => null
+        ]);
+        return view('investor.keranjang_investor')->with('status','Data Kambing Berhasil Dihapus Dari Keranjang!');
     }
 }

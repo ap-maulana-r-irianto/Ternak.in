@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Kambing;
+use App\Peternak;
 
 class Peternakku_InvestorController extends Controller
 {
@@ -14,6 +17,10 @@ class Peternakku_InvestorController extends Controller
     public function index()
     {
         //
+        // $kambing = Kambing::where('idinvestor','1')->with('peternak')->get();
+        // $peternak = Peternak::where('id', '1')->get();
+        $kambing = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idinvestor',1)->where('kambing.persetujuan1','true')->where('kambing.persetujuan2','true')->get();
+        return view('investor.seluruh_peternakku', ['kambing'=>$kambing]);
     }
 
     /**

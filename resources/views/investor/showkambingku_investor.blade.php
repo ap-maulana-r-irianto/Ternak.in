@@ -7,14 +7,14 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Seluruh Kambing Peternak</h1>
+                <h1>Seluruh Kambing Peternakku</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item">Ternak</li>
-                  <li class="breadcrumb-item">Data Peternak</li>
-                  <li class="breadcrumb-item">Seluruh Peternak</li>
-                  <li class="breadcrumb-item active">Data Kambing Peternak</li>
+                  <li class="breadcrumb-item">Data Peternakku</li>
+                  <li class="breadcrumb-item">Seluruh Peternakku</li>
+                  <li class="breadcrumb-item active">Data Kambing Peternakku</li>
                 </ol>
               </div>
             </div>
@@ -47,6 +47,7 @@
                 <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Harga</th>
                 <th scope="col">Foto Kambing</th>
+                <th scope="col">Perkembangan</th>
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
@@ -60,12 +61,13 @@
                 <td>{{$kambing->berat}}</td>
                 <td>{{$kambing->jeniskelamin}}</td>
                 <td>{{$kambing->harga}}</td>
-                <td><a href="" class="btn btn-primary">Lihat</a></td>
+                <td><a href="" class="btn btn-secondary">Lihat</a></td>
+                <td><a href="{{url('/investor/perkembangan/'.$kambing->id)}}" class="btn btn-primary">Perkembangan</a></td>
                 <td>
-                  <form action="{{url('/investor/keranjang/'.$kambing->id)}}" method="post">
+                  <form action="{{url('/investor/peternak/'.$kambing->id)}}" method="post">
                     @csrf
                     @method('put')
-                    <button type="submit" class="btn btn-danger">Beli</button>
+                    <button type="submit" class="btn btn-danger">Jual</button>
                   </form>
                 </td>
               </tr>

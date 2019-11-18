@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Kambing;
-use App\Peternak;
-use App\Investor;
 
-class Investorku_PeternakController extends Controller
+class Kambingku_InvestorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +15,6 @@ class Investorku_PeternakController extends Controller
     public function index()
     {
         //
-        $investor = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idpeternak',1)->where('kambing.persetujuan1','true')->where('kambing.persetujuan2','true')->get();
-        return view('peternak.seluruhinvestorku_peternak', ['investor' => $investor]);
     }
 
     /**
@@ -52,8 +47,8 @@ class Investorku_PeternakController extends Controller
     public function show($id)
     {
         //
-        $kambing = Kambing::where('id',$id)->get();
-        return view('peternak.seluruhkambinginvestorku_peternak', ['kambing' => $kambing]);
+        $kambing = Kambing::where('idpeternak', $id)->where('idinvestor', 1)->get();
+        return view('investor.showkambingku_investor', ['kambing' => $kambing]);
     }
 
     /**

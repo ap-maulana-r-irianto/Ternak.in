@@ -32,14 +32,14 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputPassword4">Berat</label>
-            <input type="number" name="berat" class="form-control @error('berat') is-invalid @enderror" id="inputPassword4" placeholder="berat" value="{{old('berat')}}">
+            <input type="number" name="berat" class="form-control @error('berat') is-invalid @enderror" id="inputPassword4" placeholder="Berat" value="{{old('berat')}}">
             @error('berat')
               {{ $message }}
             @enderror
           </div>
           <div class="form-group col-md-6">
             <label for="inputEmail4">Tanggal</label>
-            <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" id="inputEmail4" placeholder="tanggal" value="{{old('tanggal')}}">
+            <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" id="inputEmail4" placeholder="Tanggal" value="{{old('tanggal')}}">
             @error('tanggal')
               {{ $message }}
             @enderror
@@ -57,7 +57,7 @@
             </div>
           <div class="form-group">
             <label for="inputAddress">Keterangan</label>
-            <input type="textarea" name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" id="inputAddress" placeholder="keterangan" value="{{old('keterangan')}}">
+            <input type="textarea" name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" id="inputAddress" placeholder="Keterangan" value="{{old('keterangan')}}">
             @error('keterangan')
               {{ $message }}
             @enderror

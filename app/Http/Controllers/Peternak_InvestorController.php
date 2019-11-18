@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Peternak;
+use App\Kambing;
 
 class Peternak_InvestorController extends Controller
 {
@@ -78,6 +79,11 @@ class Peternak_InvestorController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Kambing::where('id', $id)->update([
+            'idinvestor'    => '1'
+        ]);
+
+        return redirect('/investor/peternak')->with('status','Data Kambing Berhasil Ditambahkan ke Keranjang!');
     }
 
     /**

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@awal');
+Route::get('/', 'HomeController@index');
 Route::get('/login', 'PagesController@awal');
 Route::post('/masuk', 'PagesController@login');
 Route::get('/logout', 'PagesController@logout');
@@ -65,7 +65,7 @@ Route::resource('/admin/transaksi', 'Transaksi_AdminController');
 // });
 
 // Route::group(['middleware' => ['auth:investor']], function(){
-//investor
+// investor
 Route::get('/investor/dashboard', 'PagesControllerInvestor@home');
 Route::resource('/investor/profil', 'Profil_Investor');
 //peternak
@@ -73,7 +73,7 @@ Route::get('/investor/caripeternak', 'Peternak_InvestorController@search');
 Route::resource('/investor/peternak', 'Peternak_InvestorController');
 //peternakku
 Route::get('/investor/caripeternakku', 'Peternakku_InvestorController@search');
-Route::resource('/investor/peternakk', 'Peternakku_InvestorController');
+Route::resource('/investor/peternakku', 'Peternakku_InvestorController');
 //requestjual
 Route::get('/investor/carirequestjual', 'Requestjual_InvestorController@search');
 Route::resource('/investor/requestjual', 'Requestjual_InvestorController');
@@ -82,6 +82,9 @@ Route::get('/investor/cariperminvestasi', 'Perminvestasi_InvestorController@sear
 Route::resource('/investor/perminvestasi', 'Perminvestasi_InvestorController');
 
 Route::resource('/investor/kambing', 'Kambing_InvestorController');
+Route::resource('/investor/kambingku', 'Kambingku_InvestorController');
+Route::resource('/investor/perkembangan', 'Perkembangan_InvestorController');
+Route::resource('/investor/keranjang', 'Keranjang_InvestorController');
 
 // });
 

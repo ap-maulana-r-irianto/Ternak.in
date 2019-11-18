@@ -1,4 +1,5 @@
 @extends('layouts.template_investor')
+@section('seluruhpeternakku', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -7,14 +8,13 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Seluruh Kambing Peternak</h1>
+                <h1>Seluruh Peternakku</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item">Ternak</li>
                   <li class="breadcrumb-item">Data Peternak</li>
-                  <li class="breadcrumb-item">Seluruh Peternak</li>
-                  <li class="breadcrumb-item active">Data Kambing Peternak</li>
+                  <li class="breadcrumb-item active">Seluruh Peternakku</li>
                 </ol>
               </div>
             </div>
@@ -33,46 +33,30 @@
               </div>
           @endif
           
-          @if (is_null($kambing))
-
-          @else
           <table class="table table-hover">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">No</th>
-                <th scope="col">ID Kambing</th>
-                <th scope="col">Jenis Kambing</th>
-                <th scope="col">Tanggal Lahir</th>
-                <th scope="col">Berat</th>
-                <th scope="col">Jenis Kelamin</th>
-                <th scope="col">Harga</th>
-                <th scope="col">Foto Kambing</th>
-                <th scope="col">Aksi</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Scan KTP</th>
+                <th scope="col">No. HP</th>
+                <th scope="col">Kambing</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($kambing as $kambing)
+              @foreach($kambing as $ptrnk)
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
-                <td>{{$kambing->idkambing}}</td>
-                <td>{{$kambing->jeniskambing}}</td>
-                <td>{{$kambing->tgllahir}}</td>
-                <td>{{$kambing->berat}}</td>
-                <td>{{$kambing->jeniskelamin}}</td>
-                <td>{{$kambing->harga}}</td>
+                <td>{{$ptrnk->nama}}</td>
                 <td><a href="" class="btn btn-primary">Lihat</a></td>
-                <td>
-                  <form action="{{url('/investor/keranjang/'.$kambing->id)}}" method="post">
-                    @csrf
-                    @method('put')
-                    <button type="submit" class="btn btn-danger">Beli</button>
-                  </form>
-                </td>
+                <td>{{$ptrnk->nohp}}</td>
+                <td><a href="{{url('/investor/kambingku/'.$ptrnk->id)}}" class="btn btn-danger">Lihat</a></td>
+                
               </tr>
               @endforeach
             </tbody>
           </table>
-          @endif
+          
       <!-- /.card -->
     </div>
 

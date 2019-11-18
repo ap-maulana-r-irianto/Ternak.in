@@ -29,7 +29,7 @@
         @csrf
         <div class="form-group">
           <label for="inputName">ID Kambing</label>
-          <input type="text" name="idkambing" class="form-control @error('idkambing') is-invalid @enderror" id="inputName" placeholder="idkambing" value="{{old('idkambing')}}">
+          <input type="text" name="idkambing" class="form-control @error('idkambing') is-invalid @enderror" id="inputName" placeholder="ID Kambing" value="{{old('idkambing')}}">
           @error('idkambing')
             {{ $message }}
           @enderror
@@ -64,7 +64,7 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="harga">Harga</label>
-              <input type="number" name="harga" class="form-control @error('harga') is-invalid @enderror" id="harga" placeholder="harga" value="{{old('harga')}}">
+              <input type="number" name="harga" class="form-control @error('harga') is-invalid @enderror" id="harga" placeholder="Harga" value="{{old('harga')}}">
               @error('harga')
                 {{ $message }}
               @enderror
@@ -72,7 +72,7 @@
           </div>
           <div class="form-group">
             <label for="inputAddress">Jenis Kambing</label>
-            <input type="text" name="jeniskambing" class="form-control @error('jeniskambing') is-invalid @enderror" id="inputAddress" placeholder="jeniskambing" value="{{old('jeniskambing')}}">
+            <input type="text" name="jeniskambing" class="form-control @error('jeniskambing') is-invalid @enderror" id="inputAddress" placeholder="Jenis Kambing" value="{{old('jeniskambing')}}">
             @error('jeniskambing')
               {{ $message }}
             @enderror

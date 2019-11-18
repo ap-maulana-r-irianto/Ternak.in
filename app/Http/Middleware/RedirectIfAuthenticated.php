@@ -22,13 +22,13 @@ class RedirectIfAuthenticated
         // }
 
         if (Auth::guard('admin')->check()) {
-            return redirect('admin/dashboard');
+            return redirect('/admin/dashboard');
         }elseif (Auth::guard('peternak')->check()) {
-            return redirect('peternak/dashboard');
+            return redirect('/peternak/dashboard');
         }elseif (Auth::guard('investor')->check()) {
-            return redirect('investor/dashboard');
+            return redirect('/investor/dashboard');
         }elseif (Auth::guard('pembeli')->check()) {
-            return redirect('pembeli/dashboard');
+            return redirect('/pembeli/dashboard');
         }
 
 

@@ -9,10 +9,18 @@ class Kambing extends Model
     //
 	
     protected $table = 'kambing';
-    protected $fillable = ['idkambing','jeniskambing','tgllahir','berat','jeniskelamin','harga','idpeternak','fotokambing'];
+    protected $fillable = ['idkambing','jeniskambing','tgllahir','berat','jeniskelamin','harga','idpeternak','idinvestor','idpembeli','fotokambing','statuspersetujuan1','statuspersetujuan2','permintaan1','permintaan2'];
 
     public function peternak(){
-    	return $this->belongsTo('App\Peternak');
+    	return $this->belongsTo('\App\Peternak');
+    }
+
+    public function investor(){
+        return $this->belongsTo('App\Peternak');
+    }
+
+    public function pembeli(){
+        return $this->belongsTo('App\Peternak');
     }
 
     public function perkembangan(){
