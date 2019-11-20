@@ -85,6 +85,7 @@ Route::resource('/investor/kambing', 'Kambing_InvestorController');
 Route::resource('/investor/kambingku', 'Kambingku_InvestorController');
 Route::resource('/investor/perkembangan', 'Perkembangan_InvestorController');
 Route::resource('/investor/keranjang', 'Keranjang_InvestorController');
+Route::resource('/investor/transaksi', 'Transaksi_InvestorController');
 
 // });
 

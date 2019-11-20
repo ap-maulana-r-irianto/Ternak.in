@@ -32,7 +32,7 @@
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="{{asset('scanktppeternak/'.$peternak->scanktp)}}"
+                       src="{{asset('dist/img/avatar5.png')}}"
                        alt="User profile picture" width="300px">
                 </div>
 

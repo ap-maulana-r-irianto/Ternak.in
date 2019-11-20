@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Kambing;
 
-class Keranjang_InvestorController extends Controller
+class Transaksi_InvestorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,6 @@ class Keranjang_InvestorController extends Controller
     public function index()
     {
         //
-        $kambing = Kambing::where('idinvestor', '1')->where('permintaan1', 1)->where('permintaan2', null)->get();
-        return view('investor.keranjang_investor', ['kambing' => $kambing]);
     }
 
     /**
@@ -72,12 +69,6 @@ class Keranjang_InvestorController extends Controller
     public function update(Request $request, $id)
     {
         //
-        Kambing::where('id', $id)->update([
-            'idinvestor' => '1',
-            'permintaan1' => true
-        ]);
-
-        return redirect('/investor/peternak')->with('status','Data Kambing Berhasil Ditambahkan ke Keranjang!');
     }
 
     /**
@@ -89,10 +80,5 @@ class Keranjang_InvestorController extends Controller
     public function destroy($id)
     {
         //
-        Kambing::where('id', $id)->update([
-            'idinvestor' => null,
-            'permintaan1' => null
-        ]);
-        return view('investor.keranjang_investor')->with('status','Data Kambing Berhasil Dihapus Dari Keranjang!');
     }
 }

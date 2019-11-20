@@ -75,7 +75,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('scanktpinvestor/2015-11-22 16.33.55-1-2.JPG')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{asset('dist/img/avatar5.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="" class="d-block">Ervian Akbar</a>
@@ -210,7 +210,13 @@
             </a>
           </li>
           </li>
-          <li class="nav-header">Riwayat</li>
+          <li class="nav-header">Transaksi</li>
+          <li class="nav-item">
+            <a href="{{url('/investor/transaksi')}}" class="nav-link @yield('transaksi')">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Transaksi</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="{{url('/investor/riwayattransaksi')}}" class="nav-link @yield('riwayat')">
               <i class="nav-icon fas fa-file"></i>

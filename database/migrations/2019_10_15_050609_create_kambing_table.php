@@ -27,6 +27,10 @@ class CreateKambingTable extends Migration
             $table->foreign('idinvestor')->references('id')->on('investor');
             $table->unsignedBigInteger('idpembeli')->nullable();
             $table->foreign('idpembeli')->references('id')->on('pembeli');
+            $table->unsignedBigInteger('idtransaksiinvestor')->nullable();
+            $table->foreign('idtransaksiinvestor')->references('id')->on('transaksiinvestor');
+            $table->unsignedBigInteger('idtransaksipembeli')->nullable();
+            $table->foreign('idtransaksipembeli')->references('id')->on('transaksipembeli');
             $table->string('fotokambing');
             $table->boolean('statuspersetujuan1')->nullable();
             $table->boolean('statuspersetujuan2')->nullable();
