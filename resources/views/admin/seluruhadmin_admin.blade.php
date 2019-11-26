@@ -1,5 +1,5 @@
 @extends('layouts.template_admin')
-@section('seluruhpeternak', 'active')
+@section('seluruhadmin', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -8,13 +8,13 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Seluruh Peternak</h1>
+                <h1>Seluruh Admin</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item">Ternak</li>
-                  <li class="breadcrumb-item">Data Peternak</li>
-                  <li class="breadcrumb-item active">Seluruh Peternak</li>
+                  <li class="breadcrumb-item">Data Admin</li>
+                  <li class="breadcrumb-item active">Seluruh Admin</li>
                 </ol>
               </div>
             </div>
@@ -44,15 +44,15 @@
               </tr>
             </thead>
             <tbody>
-              @foreach($peternak as $ptrnk)
+              @foreach($admin as $ptrnk)
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$ptrnk->nama}}</td>
                 <td>{{$ptrnk->noktp}}</td>
                 <td>{{$ptrnk->username}}</td>
                 <td>
-                  <a href="{{url('/admin/peternak/'.$ptrnk->id)}}" class="btn btn-success">DETAIL</a>
-                    <form class="d-inline-block" action="{{url('/admin/peternak/'.$ptrnk->id)}}" method="POST">
+                  <a href="{{url('/admin/admin/'.$ptrnk->id)}}" class="btn btn-success">DETAIL</a>
+                    <form class="d-inline-block" action="{{url('/admin/admin/'.$ptrnk->id)}}" method="POST">
                       @csrf
                       @method('delete')
                         <button type="submit" class="btn btn-danger" onclick="confirm('Apakah Anda Yakin?')">HAPUS</button>

@@ -47,7 +47,7 @@ class Kambingku_InvestorController extends Controller
     public function show($id)
     {
         //
-        $kambing = Kambing::where('idpeternak', $id)->where('idinvestor', 1)->get();
+        $kambing = Kambing::where('idpeternak', $id)->where('idinvestor', {{Auth::user()->id}})->get();
         return view('investor.showkambingku_investor', ['kambing' => $kambing]);
     }
 

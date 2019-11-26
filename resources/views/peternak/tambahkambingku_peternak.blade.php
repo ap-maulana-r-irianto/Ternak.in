@@ -77,7 +77,7 @@
               {{ $message }}
             @enderror
           </div>
-          <input type="hidden" name="idpeternak" value="1">
+          <input type="hidden" name="idpeternak" value="{{Auth::user()->id}}">
           <div class="form-group">
             <label for="fotokambing">Foto Kambing</label>
             <input type="file" name="fotokambing" class="form-control-file @error('fotokambing') is-invalid @enderror" id="fotokambing" value="{{old('fotokambing')}}">

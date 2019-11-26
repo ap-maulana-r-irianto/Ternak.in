@@ -16,7 +16,7 @@ class Profil_Investor extends Controller
     public function index()
     {
         //
-        $investor = Investor::where('id', '1')->first();
+        $investor = Investor::where('id', {{Auth::user()->id}})->first();
         return view('investor.profil_investor', ['investor' => $investor]);
     }
 

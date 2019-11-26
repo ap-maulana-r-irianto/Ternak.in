@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Admin;
 use App\Peternak;
 use App\Investor;
-use App\Pembeli;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +19,6 @@ class PagesController extends Controller
     	$dataadmin = Admin::where('email', $request->email)->where('password', $request->password)->get();
     	$datapeternak = Peternak::where('email', $request->email)->where('password', $request->password)->get();
     	$datainvestor = Investor::where('email', $request->email)->where('password', $request->password)->get();
-    	$datapembeli = Pembeli::where('email', $request->email)->where('password', $request->password)->get();
 
     	if (count($dataadmin)>0) {
     		Auth::guard('admin')->LoginUsingId($dataadmin[0]['id']);
@@ -31,9 +29,6 @@ class PagesController extends Controller
     	}elseif (count($datainvestor)>0) {
     		Auth::guard('investor')->LoginUsingId($datainvestor[0]['id']);
     		return redirect('investor/dashboard');
-    	}elseif (count($datapembeli)>0) {
-    		Auth::guard('pembeli')->LoginUsingId($datapembeli[0]['id']);
-    		return redirect('pembeli/dashboard');
     	}else{
     		return redirect('/');
     	}
@@ -127,9 +122,6 @@ class PagesController extends Controller
     		return view('login');
     	}elseif (Auth::guard('investor')->check()) {
     		Auth::guard('investor')->logout();
-    		return view('login');
-    	}elseif (Auth::guard('pembeli')->check()) {
-    		Auth::guard('pembeli')->logout();
     		return view('login');
     	}
 

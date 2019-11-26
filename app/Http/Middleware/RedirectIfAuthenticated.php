@@ -27,8 +27,6 @@ class RedirectIfAuthenticated
             return redirect('/peternak/dashboard');
         }elseif (Auth::guard('investor')->check()) {
             return redirect('/investor/dashboard');
-        }elseif (Auth::guard('pembeli')->check()) {
-            return redirect('/pembeli/dashboard');
         }
 
 

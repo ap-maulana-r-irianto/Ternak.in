@@ -41,15 +41,17 @@
  -->
                     <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Checkout
+            CHECKOUT
           </button>
+          <br>
+          <br>
 
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Pembayaran</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -59,14 +61,14 @@
                   @csrf
                     <div class="form-group">
                       <label for="metode">Metode</label>
-                      <input type="text" name="metode" class="form-control @error('metode') is-invalid @enderror" id="metode" placeholder="ID Kambing" value="{{old('metode')}}">
+                      <input type="text" name="metode" class="form-control @error('metode') is-invalid @enderror" id="metode" placeholder="Transfer BANK" value="{{old('metode')}}" readonly>
                       @error('metode')
                         {{ $message }}
                       @enderror
                     </div>
                     <div class="form-group">
                       <label for="bukti">Bukti</label>
-                      <input type="text" name="bukti" class="form-control @error('bukti') is-invalid @enderror" id="bukti" placeholder="ID Kambing" value="{{old('bukti')}}">
+                      <input type="file" name="bukti" class="form-control-file @error('bukti') is-invalid @enderror" id="bukti" placeholder="" value="{{old('bukti')}}">
                       @error('bukti')
                         {{ $message }}
                       @enderror
@@ -76,8 +78,8 @@
 
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                  <button type="button" class="btn btn-primary">Bayar</button>
                 </div>
               </div>
             </div>
@@ -98,6 +100,7 @@
               </tr>
             </thead>
             <tbody>
+              <?php $total = 0; ?>
               @foreach($kambing as $kambing)
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
@@ -106,7 +109,7 @@
                 <td>{{$kambing->tgllahir}}</td>
                 <td>{{$kambing->berat}}</td>
                 <td>{{$kambing->jeniskelamin}}</td>
-                <td>{{$kambing->harga}}</td>
+                <td>Rp. {{$kambing->harga}}</td>
                 <td><a href="" class="btn btn-secondary">Lihat</a></td>
                 <td>
                   <form action="{{url('/investor/keranjang/'.$kambing->id)}}" method="POST">
@@ -116,7 +119,23 @@
                     </form>
                 </td>
               </tr>
+              @if($total == 0)
+              <?php $total = $kambing->harga; ?>
+              @else
+              <?php $total = $total + $kambing->harga; ?>
+              @endif
               @endforeach
+              <tr>
+                <th></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><?php echo "Rp. $total"; ?></td>
+                <td>TOTAL</td>
+                <td></td>
+              </tr>
             </tbody>
           </table>
           

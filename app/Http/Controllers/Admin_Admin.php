@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Peternak;
+use App\Admin;
 
-class Profil_Peternak extends Controller
+class Admin_Admin extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +17,8 @@ class Profil_Peternak extends Controller
     public function index()
     {
         //
-        $peternak = Peternak::where('id', {{Auth::user()->id}})->first();
-        return view('peternak.profil_peternak', ['peternak' => $peternak]);
+        $admin = Admin::all();
+        return view('admin.seluruhadmin_admin', ['admin' => $admin]);
     }
 
     /**
@@ -28,6 +29,7 @@ class Profil_Peternak extends Controller
     public function create()
     {
         //
+        return view('admin.tambahadmin_admin');
     }
 
     /**
@@ -39,6 +41,36 @@ class Profil_Peternak extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nama'             => ['required'],
+            'alamat'           => ['required'],
+            'nohp'             => ['required', 'max:14'],
+            'noktp'            => ['required', 'size:16', 'unique:admin,noktp'],
+            'username'         => ['required', 'size:6'],
+            'password'         => ['required', 'size:10'],
+            'email'            => ['required', 'email', 'unique:admin,email'],
+            'scanktp'          => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
+        ]);
+
+        $file = $request->file('scanktp');
+        $folder = public_path('scanktpadmin');
+        $file->move($folder, $file->getClientOriginalName());
+
+        // admin::create($request->all());
+
+        $admin = new Admin;
+        $admin->nama             = $request->nama;
+        $admin->alamat           = $request->alamat;
+        $admin->nohp             = $request->nohp;
+        $admin->noktp            = $request->noktp;
+        $admin->username         = $request->username;
+        $admin->password         = $request->password;
+        $admin->email            = $request->email;
+        $admin->scanktp          = $file->getClientOriginalName();
+
+        $admin->save();
+
+        return redirect('/admin/admin')->with('status','Data Admin Berhasil Ditambahkan!');
     }
 
     /**
@@ -50,6 +82,8 @@ class Profil_Peternak extends Controller
     public function show($id)
     {
         //
+        $admin = Admin::findorfail($id);
+        return view('admin.showadmin_admin', compact('admin'));
     }
 
     /**
@@ -61,8 +95,8 @@ class Profil_Peternak extends Controller
     public function edit($id)
     {
         //
-        $peternak = Peternak::findorfail($id);
-        return view('peternak.editprofil_peternak', compact('peternak'));
+        $admin = Admin::findorfail($id);
+        return view('admin.editadmin_admin', compact('admin'));
     }
 
     /**
@@ -79,30 +113,28 @@ class Profil_Peternak extends Controller
             'nama'             => ['required'],
             'alamat'           => ['required'],
             'nohp'             => ['required', 'max:14'],
-            'noktp'            => ['required', 'size:16', 'unique:peternak,noktp'],
-            'alamatpeternakan' => ['required'],
+            'noktp'            => ['required', 'size:16', 'unique:admin,noktp'],
             'username'         => ['required', 'size:6'],
             'password'         => ['required', 'size:10'],
-            'email'            => ['required', 'email', 'unique:peternak,email'],
+            'email'            => ['required', 'email', 'unique:admin,email'],
             'scanktp'          => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
         ]);
 
         $file = $request->file('scanktp');
-        $folder = public_path('scanktppeternak');
+        $folder = public_path('scanktpadmin');
         $file->move($folder, $file->getClientOriginalName());
         
-        Peternak::where('id', $id)->update([
+        Admin::where('id', $id)->update([
             'nama'             => $request->nama,
             'alamat'           => $request->alamat,
             'nohp'             => $request->nohp,
             'noktp'            => $request->noktp,
-            'alamatpeternakan' => $request->alamatpeternakan,
             'username'         => $request->username,
             'password'         => $request->password,
             'email'            => $request->email,
             'scanktp'          => $file->getClientOriginalName()
         ]);
-        return redirect('/peternak/profil')->with('status','Data Profil Berhasil Diubah!');
+        return redirect('/admin/peternaadmink')->with('status','Data Admin Berhasil Diubah!');
     }
 
     /**
@@ -114,5 +146,7 @@ class Profil_Peternak extends Controller
     public function destroy($id)
     {
         //
+        Admin::destroy($id);
+        return redirect('/admin/admin')->with('status','Data Admin Berhasil Dihapus!');
     }
 }

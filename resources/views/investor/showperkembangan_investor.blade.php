@@ -32,7 +32,7 @@
               </div>
           @endif
   
-          <table class="table">
+          <table id="tabel1" class="table table-hover">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">No</th>

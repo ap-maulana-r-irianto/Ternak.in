@@ -36,29 +36,29 @@
                        alt="User profile picture" width="300px">
                 </div>
 
-                <h3 class="profile-username text-center">{{$peternak->nama}}</h3>
+                <h3 class="profile-username text-center">{{Auth::user()->nama}}</h3>
 
                 <p class="text-muted text-center">Peternak</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Alamat</b> <a class="float-right">{{$peternak->alamat}}</a>
+                    <b>Alamat</b> <a class="float-right">{{Auth::user()->alamat}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>No. HP</b> <a class="float-right">{{$peternak->nohp}}</a>
+                    <b>No. HP</b> <a class="float-right">{{Auth::user()->nohp}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>No. KTP</b> <a class="float-right">{{$peternak->noktp}}</a>
+                    <b>No. KTP</b> <a class="float-right">{{Auth::user()->noktp}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Username</b> <a class="float-right">{{$peternak->username}}</a>
+                    <b>Username</b> <a class="float-right">{{Auth::user()->username}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Email</b> <a class="float-right">{{$peternak->email}}</a>
+                    <b>Email</b> <a class="float-right">{{Auth::user()->email}}</a>
                   </li>
                 </ul>
 
-                <a href="{{url('peternak/profil/'.$peternak->id.'/edit')}}" class="btn btn-primary btn-block"><b>Edit</b></a>
+                <a href="{{url('peternak/profil/'.{{Auth::user()->id}}.'/edit')}}" class="btn btn-primary btn-block"><b>Edit</b></a>
               </div>
               <!-- /.card-body -->
             </div>

@@ -7,6 +7,7 @@ use App\Peternak;
 use App\Investor;
 use App\Admin;
 use App\Kambing;
+use App\Transaksi;
 
 class PagesControllerAdmin extends Controller
 {
@@ -16,7 +17,8 @@ class PagesControllerAdmin extends Controller
         $investor = Investor::all();
         $admin    = Admin::all();
         $kambing  = Kambing::all();
-    	return view('admin.dashboard_admin', ['peternak' => $peternak, 'investor' => $investor, 'admin' => $admin, 'kambing' => $kambing]);
+        $transaksi= Transaksi::all();
+    	return view('admin.dashboard_admin', ['peternak' => $peternak, 'investor' => $investor, 'admin' => $admin, 'kambing' => $kambing, 'transaksi' => $transaksi]);
     }
 
     public function grafik(){

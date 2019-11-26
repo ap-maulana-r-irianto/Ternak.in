@@ -81,6 +81,7 @@
           <img src="{{asset('dist/img/avatar5.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
+          <!-- <a href="" class="d-block"></a> -->
           <a href="" class="d-block">Maulana Rafael</a>
         </div>
       </div>
@@ -115,12 +116,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/peternak/carikambingku')}}" class="nav-link @yield('carikambingku')">
-                  <i class="nav-icon fas fa-edit"></i>
-                  <p>Cari Kambingku</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="{{url('/peternak/kambingku/create')}}" class="nav-link @yield('tambahkambingku')">
                   <i class="nav-icon fas fa-table"></i>
@@ -144,12 +140,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/peternak/cariinvestorku')}}" class="nav-link @yield('cariinvestorku')">
-                  <i class="nav-icon fas fa-edit"></i>
-                  <p>Cari Investorku</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="{{url('/peternak/investorku')}}" class="nav-link @yield('seluruhinvestorku')">
                   <i class="nav-icon fas fa-table"></i>
@@ -167,12 +158,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/peternak/cariperminvestasi')}}" class="nav-link @yield('cariperminvestasi')">
-                  <i class="nav-icon fas fa-edit"></i>
-                  <p>Cari Perm. Investasi</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="{{url('/peternak/perminvestasi')}}" class="nav-link @yield('seluruhperinvestasi')">
                   <i class="nav-icon fas fa-table"></i>
@@ -190,12 +176,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/peternak/carirequestjual')}}" class="nav-link @yield('dashboard')">
-                  <i class="nav-icon fas fa-edit"></i>
-                  <p>Cari Request Jual</p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="{{url('/peternak/requestjual')}}" class="nav-link @yield('seluruhrequestjual')">
                   <i class="nav-icon fas fa-table"></i>

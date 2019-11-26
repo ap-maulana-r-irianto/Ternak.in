@@ -59,7 +59,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>1<sup style="font-size: 20px">orang</sup></h3>
+                <h3>{{$admin->count()}}<sup style="font-size: 20px">orang</sup></h3>
 
                 <p>Admin</p>
               </div>
@@ -74,7 +74,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0<sup style="font-size: 20px">++</sup></h3>
+                <h3>{{$transaksi->count()}}<sup style="font-size: 20px">++</sup></h3>
 
                 <p>Transaksi</p>
               </div>

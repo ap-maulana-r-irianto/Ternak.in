@@ -34,7 +34,7 @@
   
           <a href="{{url('peternak/tambah/'.$kambing->id)}}" class="btn btn-danger btn-lg">Tambah Perkembangan</a>
           <br><br>
-          <table class="table">
+          <table id="tabel1" class="table table-hover">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">No</th>

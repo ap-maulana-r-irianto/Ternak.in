@@ -24,7 +24,7 @@ class Kambingku_PeternakController extends Controller
     {
         //
         $kambing = Kambing::all();
-        $peternak = Peternak::where('id','1')->first();
+        $peternak = Peternak::where('id',{{Auth::user()->id}})->first();
         return view('peternak.seluruhkambingku_peternak', ['kambing' => $kambing, 'peternak' => $peternak]);
     }
 

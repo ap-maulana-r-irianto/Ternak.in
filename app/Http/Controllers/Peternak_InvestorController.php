@@ -80,7 +80,7 @@ class Peternak_InvestorController extends Controller
     {
         //
         Kambing::where('id', $id)->update([
-            'idinvestor'    => '1'
+            'idinvestor'    => {{Auth::user()->id}}
         ]);
 
         return redirect('/investor/peternak')->with('status','Data Kambing Berhasil Ditambahkan ke Keranjang!');

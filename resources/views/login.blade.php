@@ -77,7 +77,6 @@
         <br>
         <a href="{{url('create/investor')}}" class="text-center">Daftar Sebagai Investor</a>
         <br>
-        <a href="{{url('create/pembeli')}}" class="text-center">Daftar Sebagai Pembeli</a>
       </p>
     </div>
     <!-- /.login-card-body -->

@@ -58,7 +58,7 @@
                   </li>
                 </ul>
 
-                <a href="{{url('investor/profil/'.$investor->id.'/edit')}}" class="btn btn-primary btn-block"><b>Edit</b></a>
+                <a href="{{url('investor/profil/'.{{Auth::user()->id}}.'/edit')}}" class="btn btn-primary btn-block"><b>Edit</b></a>
               </div>
               <!-- /.card-body -->
             </div>

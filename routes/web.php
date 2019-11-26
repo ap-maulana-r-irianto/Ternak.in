@@ -10,11 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => ['guest']], function(){
 
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+Route::get('/welcome', 'HomeController@welcome');
 Route::get('/login', 'PagesController@awal');
 Route::post('/masuk', 'PagesController@login');
-Route::get('/logout', 'PagesController@logout');
 Route::get('/create/peternak', 'PagesController@createpeternak');
 Route::get('/create/investor', 'PagesController@createinvestor');
 Route::get('/create/pembeli', 'PagesController@createpembeli');
@@ -22,7 +24,11 @@ Route::post('/store/peternak', 'PagesController@storepeternak');
 Route::post('/store/investor', 'PagesController@storeinvestor');
 Route::post('/store/pembeli', 'PagesController@storepembeli');
 
-// Route::group(['middleware' => ['auth:peternak']], function(){
+});
+
+Route::get('/logout', 'PagesController@logout');
+
+Route::group(['middleware' => ['auth:peternak']], function(){
 
 //peternak
 Route::get('/peternak/dashboard', 'PagesControllerPeternak@home');
@@ -43,12 +49,15 @@ Route::resource('/peternak/requestjual', 'Requestjual_PeternakController');
 Route::get('/peternak/tambah/{id}', 'Perkembangan_PeternakController@buat');
 Route::resource('/peternak/perkembangan', 'Perkembangan_PeternakController');
 
-// });
+});
 
-// Route::group(['middleware' => ['auth:admin']], function(){
+Route::group(['middleware' => ['auth:admin']], function(){
 //admin
 Route::get('/admin/dashboard', 'PagesControllerAdmin@home');
 Route::resource('/admin/profil', 'Profil_Admin');
+//admin
+Route::get('/admin/cariadmin', 'Admin_Admin@search');
+Route::resource('/admin/admin', 'Admin_Admin');
 //peternak
 Route::get('/admin/caripeternak', 'Peternak_AdminController@search');
 Route::resource('/admin/peternak', 'Peternak_AdminController');
@@ -62,9 +71,9 @@ Route::resource('/admin/pembeli', 'Pembeli_AdminController');
 Route::get('/admin/caritransaksi', 'Transaksi_AdminController@search');
 Route::resource('/admin/transaksi', 'Transaksi_AdminController');
 
-// });
+});
 
-// Route::group(['middleware' => ['auth:investor']], function(){
+Route::group(['middleware' => ['auth:investor']], function(){
 // investor
 Route::get('/investor/dashboard', 'PagesControllerInvestor@home');
 Route::resource('/investor/profil', 'Profil_Investor');
@@ -87,11 +96,12 @@ Route::resource('/investor/perkembangan', 'Perkembangan_InvestorController');
 Route::resource('/investor/keranjang', 'Keranjang_InvestorController');
 Route::resource('/investor/transaksi', 'Transaksi_InvestorController');
 
-// });
-
-Route::get('/home', 'HomeController@index');
-Route::get('/welcome', 'HomeController@welcome');
+});
 
 
 // Auth::routes();
 
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
