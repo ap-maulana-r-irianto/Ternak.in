@@ -45,7 +45,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>0<sup style="font-size: 20px">orang</sup></h3>
+                <h3>{{$investor->count()}}<sup style="font-size: 20px">orang</sup></h3>
 
                 <p>Investorku</p>
               </div>
@@ -60,9 +60,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>0<sup style="font-size: 20px">++</sup></h3>
+                <h3>{{$transaksi->count()}}<sup style="font-size: 20px">++</sup></h3>
 
-                <p>Perm Investasi</p>
+                <p>Transaksi</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -75,7 +75,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0<sup style="font-size: 20px">++</sup></h3>
+                <h3>{{$request->count()}}<sup style="font-size: 20px">++</sup></h3>
 
                 <p>Request Jual</p>
               </div>

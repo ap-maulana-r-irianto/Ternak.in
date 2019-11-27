@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Kambing;
 use App\Peternak;
+use Illuminate\Support\Facades\Auth;
 
 class Kambingku_PeternakController extends Controller
 {
@@ -24,7 +25,7 @@ class Kambingku_PeternakController extends Controller
     {
         //
         $kambing = Kambing::all();
-        $peternak = Peternak::where('id', "Auth::user()->id" )->first();
+        $peternak = Peternak::where('id', Auth::user()->id )->get();
         return view('peternak.seluruhkambingku_peternak', ['kambing' => $kambing, 'peternak' => $peternak]);
     }
 

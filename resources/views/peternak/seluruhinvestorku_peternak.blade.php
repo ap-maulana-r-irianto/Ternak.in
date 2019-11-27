@@ -1,5 +1,5 @@
 @extends('layouts.template_peternak')
-@section('seluruhinvestorku', 'active')
+@section('seluruhinvestorkujual', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -48,28 +48,8 @@
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$inv->nama}}</td>
-                <td><a href="{{asset('scanktpinvestor/'.$k->scanktp)}}" class="btn btn-secondary"><i class="fa fa-file-image-o"></i>LIHAT</a>
+                <td><a href="{{asset('scanktpinvestor/'.$inv->scanktp)}}" class="btn btn-secondary"><i class="fa fa-file-image-o"></i>LIHAT</a>
 
-                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Lihat</button>
-                  
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <br>
-
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
                 </td>
                 <td>{{$inv->nohp}}</td>
                 <td><a href="{{url('/peternak/investorku/'.$inv->id)}}" class="btn btn-danger">Lihat</a></td>

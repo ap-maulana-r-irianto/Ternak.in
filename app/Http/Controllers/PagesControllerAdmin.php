@@ -9,6 +9,9 @@ use App\Admin;
 use App\Kambing;
 use App\Transaksi;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 class PagesControllerAdmin extends Controller
 {
     //
@@ -17,7 +20,7 @@ class PagesControllerAdmin extends Controller
         $investor = Investor::all();
         $admin    = Admin::all();
         $kambing  = Kambing::all();
-        $transaksi= Transaksi::all();
+        $transaksi= Kambing::where('statuspersetujuan2', 1)->get();
     	return view('admin.dashboard_admin', ['peternak' => $peternak, 'investor' => $investor, 'admin' => $admin, 'kambing' => $kambing, 'transaksi' => $transaksi]);
     }
 

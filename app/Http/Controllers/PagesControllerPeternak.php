@@ -8,15 +8,17 @@ use App\Investor;
 use App\Admin;
 use App\Kambing;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PagesControllerPeternak extends Controller
 {
     //
     public function home(){
-        $peternak = Peternak::all();
-        $investor = Investor::all();
-        $admin    = Admin::all();
-        $kambing  = Kambing::all();
+        $transaksi = Kambing::where('idpeternak', Auth::user()->id)->where('statuspersetujuan2', 1)->get();
+        $investor = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idpeternak', Auth::user()->id)->get();
+        $request  = Kambing::where('idpeternak', Auth::user()->id)->where('statuspersetujuan1', 1)->where('statuspersetujuan2', null)->get();
+        $kambing  = Kambing::where('idpeternak', Auth::user()->id)->get();
     	return view('peternak.dashboard_peternak', ['peternak' => $peternak, 'investor' => $investor, 'admin' => $admin, 'kambing' => $kambing]);
     }
 

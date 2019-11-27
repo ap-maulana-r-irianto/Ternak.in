@@ -49,6 +49,10 @@ Route::resource('/peternak/requestjual', 'Requestjual_PeternakController');
 Route::get('/peternak/tambah/{id}', 'Perkembangan_PeternakController@buat');
 Route::resource('/peternak/perkembangan', 'Perkembangan_PeternakController');
 
+Route::resource('/peternak/jual', 'Pengajuan_PeternakController');
+
+Route::resource('/peternak/transaksi', 'Transaksi_PeternakController');
+
 });
 
 Route::group(['middleware' => ['auth:admin']], function(){

@@ -7,7 +7,7 @@ use App\Kambing;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class Requestjual_InvestorController extends Controller
+class Pengajuan_PeternakController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class Requestjual_InvestorController extends Controller
     public function index()
     {
         //
-        $kambing = DB::table('kambing')->join('peternak','peternak.id','=','kambing.idpeternak')->where('kambing.idinvestor', Auth::user()->id)->where('kambing.statuspersetujuan1',1)->get();
+        $kambing = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idpeternak', Auth::user()->id)->where('kambing.statuspersetujuan1',1)->get();
         // $kambing = Kambing::where('idpeternak', Auth::user()->id)->where('statuspersetujuan1', 1)->get();
         return view('peternak.seluruhrequestjual', ['kambing' => $kambing]);
     }
@@ -52,10 +52,6 @@ class Requestjual_InvestorController extends Controller
     public function show($id)
     {
         //
-        Kambing::where('id', $id)->update([
-            'statuspersetujuan2' => true
-        ]);
-        return redirect('/investor/requestjual')->with('status','Data Pengajuan Penjualan Kambing Berhasil Disetujui dan Kerja Sama Telah Selesai!');
     }
 
     /**
@@ -79,6 +75,15 @@ class Requestjual_InvestorController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'harga'    => ['required']
+            ]);
+
+        Kambing::where('id', $id)->update([
+            'statuspersetujuan1' => true,
+            'jual'    => $request->harga
+        ]);
+        return redirect('/peternak/investorku')->with('status','Data Kambing Berhasil Diajukan!');
     }
 
     /**
@@ -94,6 +99,6 @@ class Requestjual_InvestorController extends Controller
             'statuspersetujuan1' => null,
             'jual'    => null
         ]);
-        return redirect('/investor/requestjual')->with('status','Data Pengajuan Penjualan Kambing Berhasil Ditolak!');
+        return redirect('/peternak/jual')->with('status','Data Pengajuan Penjualan Kambing Berhasil Dibatalkan!');
     }
 }

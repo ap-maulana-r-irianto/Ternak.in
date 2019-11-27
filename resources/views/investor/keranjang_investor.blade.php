@@ -33,8 +33,9 @@
               </div>
           @endif
           
-          <form action="{{url('investor/transaksi/1')}}" method="POST">
+          <form action="{{url('investor/transaksi')}}" method="POST">
           @csrf
+          <input type="hidden" value="{{Auth::user()->id}}" name="id" id="id">
           <button type="submit" class="btn btn-primary btn-lg" onclick="confirm('Apakah Anda Yakin?')">Bayar</button>
           </form>
           <br>

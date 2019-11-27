@@ -47,6 +47,7 @@
                 <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Harga</th>
                 <th scope="col">Foto Kambing</th>
+                <th scope="col">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -60,6 +61,54 @@
                 <td>{{$kambing->jeniskelamin}}</td>
                 <td>{{$kambing->harga}}</td>
                 <td><a href="{{asset('fotokambing/'.$kambing->fotokambing)}}" class="btn btn-secondary"><i class="fa fa-file-image-o"></i>LIHAT</a></td>
+                <td>
+                  @if($kambing->statuspersetujuan1 == 1)
+                          
+                  @else
+                    <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                    JUAL
+                  </button>
+                  <br>
+                  <br>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Pengajuan Penjualan</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        
+                          <form action="{{url('peternak/jual/'.$kambing->id)}}" method="POST">
+                            <div class="modal-body">
+                          @csrf
+                          @method('put')
+
+                            <input type="hidden" value="{{Auth::user()->id}}" name="id" id="id">
+                            <div class="form-group">
+                              <label for="harga">Harga Jual</label>
+                              <input type="number" name="harga" class="form-control @error('harga') is-invalid @enderror" id="harga" placeholder="Rp. " value="{{old('harga')}}">
+                              @error('harga')
+                                {{ $message }}
+                              @enderror
+                            </div>
+                            <div class="modal-footer">
+                          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button> -->
+                          <button class="btn btn-primary">Ajukan</button>
+                          </div>
+                        </div>
+                          </form>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+                  
+                  @endif
+                </td>
               </tr>
               @endforeach
             </tbody>

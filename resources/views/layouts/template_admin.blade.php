@@ -209,17 +209,11 @@
             </ul>
           </li>
           </li>
-          <li class="nav-header">Rekap Data</li>
+          <li class="nav-header">Transaksi</li>
           <li class="nav-item">
-            <a href="{{url('/admin/datatransaksiinvestor')}}" class="nav-link @yield('datatransaksiinvestor')">
+            <a href="{{url('/admin/transaksi')}}" class="nav-link @yield('riwayat')">
               <i class="nav-icon fas fa-file"></i>
-              <p>Data Transaksi Investor</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{url('/admin/datatransaksipembeli')}}" class="nav-link @yield('datatransaksipembeli')">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Data Transaksi Pembeli </p>
+              <p>Riwayat Transaksi</p>
             </a>
           </li>
         </ul>

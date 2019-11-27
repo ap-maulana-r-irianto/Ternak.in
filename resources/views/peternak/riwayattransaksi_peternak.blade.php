@@ -1,5 +1,5 @@
 @extends('layouts.template_peternak')
-@section('seluruhrequestjual', 'active')
+@section('riwayat', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
@@ -8,13 +8,11 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Seluruh Request Jual</h1>
+                <h1>Riwayat Transaksi<h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item">Ternak</li>
-                  <li class="breadcrumb-item">Data Request Jual</li>
-                  <li class="breadcrumb-item active">Seluruh Request Jual</li>
+                  <li class="breadcrumb-item active">Riwayat Transaksi</li>
                 </ol>
               </div>
             </div>
@@ -55,11 +53,7 @@
                 <td>{{$k->nama}}</td>
                 <td>{{$k->jual}}</td>
                 <td>
-                  <form class="d-inline-block" action="{{url('/peternak/jual/'.$k->id)}}" method="POST">
-                      @csrf
-                      @method('delete')
-                        <button type="submit" class="btn btn-danger" onclick="confirm('Apakah Anda Yakin?')">BATAL</button>
-                    </form>
+                  <a href="" class="btn btn-primary">TELAH TERJUAL</a>
                 </td>
                 
               </tr>

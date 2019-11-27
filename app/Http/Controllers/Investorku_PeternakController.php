@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Kambing;
@@ -18,7 +19,7 @@ class Investorku_PeternakController extends Controller
     public function index()
     {
         //
-        $investor = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idpeternak',"Auth::user()->id")->where('kambing.permintaan1',1)->where('kambing.permintaan2',1)->get();
+        $investor = DB::table('investor')->join('kambing','kambing.idinvestor','=','investor.id')->where('kambing.idpeternak',Auth::user()->id)->where('kambing.permintaan1',1)->where('kambing.permintaan2',1)->get();
         return view('peternak.seluruhinvestorku_peternak', ['investor' => $investor]);
     }
 
@@ -30,6 +31,7 @@ class Investorku_PeternakController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -41,6 +43,9 @@ class Investorku_PeternakController extends Controller
     public function store(Request $request)
     {
         //
+
+        $investor = DB::table('investor')->join('kambing','kambing.idinvestor','=','investor.id')->where('kambing.idpeternak',$request->id)->where('kambing.permintaan1',1)->where('kambing.permintaan2',1)->get();
+        return view('peternak.seluruhinvestorku_peternak', ['investor' => $investor]);
     }
 
     /**
@@ -52,7 +57,7 @@ class Investorku_PeternakController extends Controller
     public function show($id)
     {
         //
-        $kambing = Kambing::where('id',$id)->get();
+        $kambing = Kambing::where('idinvestor',$id)->get();
         return view('peternak.seluruhkambinginvestorku_peternak', ['kambing' => $kambing]);
     }
 

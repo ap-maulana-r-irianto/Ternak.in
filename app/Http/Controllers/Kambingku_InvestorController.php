@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kambing;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Kambingku_InvestorController extends Controller
 {
@@ -47,7 +49,7 @@ class Kambingku_InvestorController extends Controller
     public function show($id)
     {
         //
-        $kambing = Kambing::where('idpeternak', $id)->where('idinvestor', "Auth::user()->id")->get();
+        $kambing = Kambing::where('idpeternak', $id)->where('idinvestor', Auth::user()->id)->where('statuspersetujuan2', null)->get();
         return view('investor.showkambingku_investor', ['kambing' => $kambing]);
     }
 

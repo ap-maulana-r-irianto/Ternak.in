@@ -1,4 +1,4 @@
-@extends('layouts.template_peternak')
+@extends('layouts.template_investor')
 @section('seluruhrequestjual', 'active')
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -39,7 +39,7 @@
                 <th scope="col">No</th>
                 <th scope="col">ID Kambing</th>
                 <th scope="col">Foto</th>
-                <th scope="col">Investor</th>
+                <th scope="col">Peternak</th>
                 <th scope="col">Harga Jual</th>
                 <th scope="col">Aksi</th>
               </tr>
@@ -55,10 +55,11 @@
                 <td>{{$k->nama}}</td>
                 <td>{{$k->jual}}</td>
                 <td>
-                  <form class="d-inline-block" action="{{url('/peternak/jual/'.$k->id)}}" method="POST">
+                  <a href="{{url('/investor/requestjual/'.$k->id)}}" class="btn btn-primary">SETUJU</a>
+                  <form class="d-inline-block" action="{{url('/investor/requestjual/'.$k->id)}}" method="POST">
                       @csrf
                       @method('delete')
-                        <button type="submit" class="btn btn-danger" onclick="confirm('Apakah Anda Yakin?')">BATAL</button>
+                        <button type="submit" class="btn btn-danger" onclick="confirm('Apakah Anda Yakin?')">TOLAK</button>
                     </form>
                 </td>
                 

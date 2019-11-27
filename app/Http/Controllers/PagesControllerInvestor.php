@@ -8,15 +8,18 @@ use App\Investor;
 use App\Admin;
 use App\Kambing;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 class PagesControllerInvestor extends Controller
 {
     //
     public function home(){
-        $peternak = Peternak::all();
-        $investor = Investor::all();
-        $admin    = Admin::all();
-        $kambing  = Kambing::all();
-    	return view('investor.dashboard_investor', ['peternak' => $peternak, 'investor' => $investor, 'admin' => $admin, 'kambing' => $kambing]);
+        $peternak   = Peternak::all();
+        $peternakku = DB::table('kambing')->join('peternak','peternak.id','=','kambing.idpeternak')->where('kambing.idinvestor', Auth::user()->id)->where('kambing.statuspersetujuan2',null)->get();
+        $request    = Kambing::where('statuspersetujuan1', 1)->where('statuspersetujuan2',null)->get();
+        $kambing    = Kambing::where('idinvestor', Auth::user()->id)->where('statuspersetujuan2',null)->get();
+    	return view('investor.dashboard_investor', ['peternak' => $peternak, 'peternakku' => $peternakku, 'request' => $request, 'kambing' => $kambing]);
     }
 
     public function grafik(){

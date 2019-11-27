@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Kambing;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Transaksi_PeternakController extends Controller
 {
@@ -14,6 +17,9 @@ class Transaksi_PeternakController extends Controller
     public function index()
     {
         //
+        $kambing = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idpeternak', Auth::user()->id)->where('kambing.statuspersetujuan2',1)->get();
+        // $kambing = Kambing::where('idpeternak', Auth::user()->id)->where('statuspersetujuan1', 1)->get();
+        return view('peternak.riwayattransaksi_peternak', ['kambing' => $kambing]);
     }
 
     /**

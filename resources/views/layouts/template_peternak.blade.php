@@ -82,7 +82,7 @@
         </div>
         <div class="info">
           <!-- <a href="" class="d-block"></a> -->
-          <a href="" class="d-block">Maulana Rafael</a>
+          <a href="" class="d-block">{{Auth::user()->nama}}</a>
         </div>
       </div>
 
@@ -143,7 +143,7 @@
               
               <li class="nav-item">
                 <a href="{{url('/peternak/investorku')}}" class="nav-link @yield('seluruhinvestorku')">
-                  <i class="nav-icon fas fa-table"></i>
+                <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Investorku</p>
                 </a>
               </li>
@@ -178,25 +178,25 @@
             <ul class="nav nav-treeview">
               
               <li class="nav-item">
-                <a href="{{url('/peternak/requestjual')}}" class="nav-link @yield('seluruhrequestjual')">
+                <a href="{{url('/peternak/jual')}}" class="nav-link @yield('seluruhrequestjual')">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Seluruh Request Jual</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="{{url('/peternak/keranjang')}}" class="nav-link @yield('keranjang')">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Keranjang Ternak
               </p>
             </a>
-          </li>
+          </li> -->
           </li>
           <li class="nav-header">Riwayat</li>
           <li class="nav-item">
-            <a href="{{url('/peternak/riwayat')}}" class="nav-link @yield('riwayat')">
+            <a href="{{url('/peternak/transaksi')}}" class="nav-link @yield('riwayat')">
               <i class="nav-icon fas fa-file"></i>
               <p>Riwayat Transaksi</p>
             </a>

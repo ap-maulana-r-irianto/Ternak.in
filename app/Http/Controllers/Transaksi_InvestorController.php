@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Kambing;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Transaksi_InvestorController extends Controller
 {
@@ -14,6 +17,9 @@ class Transaksi_InvestorController extends Controller
     public function index()
     {
         //
+        $kambing = DB::table('kambing')->join('peternak','peternak.id','=','kambing.idpeternak')->where('kambing.idinvestor', Auth::user()->id)->where('kambing.statuspersetujuan2',1)->get();
+        // $kambing = Kambing::where('idpeternak', Auth::user()->id)->where('statuspersetujuan1', 1)->get();
+        return view('peternak.riwayattransaksi', ['kambing' => $kambing]);
     }
 
     /**
@@ -24,6 +30,7 @@ class Transaksi_InvestorController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
@@ -35,6 +42,11 @@ class Transaksi_InvestorController extends Controller
     public function store(Request $request)
     {
         //
+        Kambing::where('idinvestor', $request->id)->update([
+            'permintaan2' => true
+        ]);
+
+        return redirect("/investor/keranjang/".$request->id)->with('status','Data Kambing Berhasil Dibayar!');
     }
 
     /**
@@ -69,6 +81,7 @@ class Transaksi_InvestorController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
     }
 
     /**

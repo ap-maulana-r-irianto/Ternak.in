@@ -79,7 +79,7 @@
         </div>
         <div class="info">
           <!-- <a href="" class="d-block"></a> -->
-          <a href="" class="d-block">Ervian Akbar</a>
+          <a href="" class="d-block">{{Auth::user()->nama}}</a>
         </div>
       </div>
 
@@ -183,7 +183,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{url('/investor/keranjang')}}" class="nav-link @yield('keranjang')">
+            <a href="{{url('/investor/keranjang/'.Auth::user()->id)}}" class="nav-link @yield('keranjang')">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Keranjang Ternak
@@ -192,14 +192,14 @@
           </li>
           </li>
           <li class="nav-header">Transaksi</li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="{{url('/investor/transaksi')}}" class="nav-link @yield('transaksi')">
               <i class="nav-icon fas fa-file"></i>
               <p>Transaksi</p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a href="{{url('/investor/riwayattransaksi')}}" class="nav-link @yield('riwayat')">
+            <a href="{{url('/investor/transaksi')}}" class="nav-link @yield('riwayat')">
               <i class="nav-icon fas fa-file"></i>
               <p>Riwayat Transaksi</p>
             </a>

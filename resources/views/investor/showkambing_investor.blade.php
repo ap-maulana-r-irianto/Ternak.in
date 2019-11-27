@@ -54,7 +54,7 @@
               @foreach($kambing as $kambing)
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
-                <td>{{$kambing->idkambing}}</td>
+                <td>{{$kambing->idkamsidebing}}</td>
                 <td>{{$kambing->jeniskambing}}</td>
                 <td>{{$kambing->tgllahir}}</td>
                 <td>{{$kambing->berat}}</td>
@@ -65,6 +65,7 @@
                   <form action="{{url('/investor/keranjang/'.$kambing->id)}}" method="post">
                     @csrf
                     @method('put')
+                    <input type="hidden" value="{{Auth::user()->id}}" name="id" id="id">
                     <button type="submit" class="btn btn-danger" onclick="confirm('Apakah Anda Yakin?')">Beli</button>
                   </form>
                 </td>
