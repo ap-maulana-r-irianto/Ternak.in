@@ -15,7 +15,7 @@ class Keranjang_InvestorController extends Controller
     public function index()
     {
         //
-        $kambing = Kambing::where('idinvestor', {{Auth::user()->id}})->where('permintaan1', 1)->where('permintaan2', null)->get();
+        $kambing = Kambing::where('idinvestor', "Auth::user()->id")->where('permintaan1', 1)->where('permintaan2', null)->get();
         return view('investor.keranjang_investor', ['kambing' => $kambing]);
     }
 
@@ -73,7 +73,7 @@ class Keranjang_InvestorController extends Controller
     {
         //
         Kambing::where('id', $id)->update([
-            'idinvestor' => {{Auth::user()->id}},
+            'idinvestor' => "Auth::user()->id",
             'permintaan1' => true
         ]);
 

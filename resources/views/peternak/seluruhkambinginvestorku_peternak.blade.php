@@ -59,7 +59,7 @@
                 <td>{{$kambing->berat}}</td>
                 <td>{{$kambing->jeniskelamin}}</td>
                 <td>{{$kambing->harga}}</td>
-                <td><a href="" class="btn btn-primary">Lihat</a></td>
+                <td><a href="{{asset('fotokambing/'.$kambing->fotokambing)}}" class="btn btn-secondary"><i class="fa fa-file-image-o"></i>LIHAT</a></td>
               </tr>
               @endforeach
             </tbody>

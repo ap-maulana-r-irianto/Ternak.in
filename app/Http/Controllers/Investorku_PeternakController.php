@@ -18,7 +18,7 @@ class Investorku_PeternakController extends Controller
     public function index()
     {
         //
-        $investor = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idpeternak',{{Auth::user()->id}})->where('kambing.permintaan1',1)->where('kambing.permintaan2',1)->get();
+        $investor = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idpeternak',"Auth::user()->id")->where('kambing.permintaan1',1)->where('kambing.permintaan2',1)->get();
         return view('peternak.seluruhinvestorku_peternak', ['investor' => $investor]);
     }
 

@@ -18,14 +18,20 @@
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
+  <style>
+    html, body{
+      background-image: url("assets/images/goat.JPG");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
   
 
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>TERNAK.</b>IN</a>
+    <a href=""><b>TERNAK.</b>IN</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

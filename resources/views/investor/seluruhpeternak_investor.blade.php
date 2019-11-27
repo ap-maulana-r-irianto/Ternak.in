@@ -49,7 +49,7 @@
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$ptrnk->nama}}</td>
-                <td><a href="" class="btn btn-primary">Lihat</a></td>
+                <td><a href="{{asset('scanktppeternak/'.$ptrnk->scanktp)}}" class="btn btn-secondary"><i class="fa fa-file-image-o"></i>LIHAT</a></td>
                 <td>{{$ptrnk->nohp}}</td>
                 <td>{{$ptrnk->alamatpeternakan}}</td>
                 <td><a href="{{url('/investor/kambing/'.$ptrnk->id)}}" class="btn btn-danger">Lihat</a></td>

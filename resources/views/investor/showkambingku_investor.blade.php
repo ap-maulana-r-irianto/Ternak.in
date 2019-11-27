@@ -61,7 +61,7 @@
                 <td>{{$kambing->berat}}</td>
                 <td>{{$kambing->jeniskelamin}}</td>
                 <td>{{$kambing->harga}}</td>
-                <td><a href="" class="btn btn-secondary">Lihat</a></td>
+                <td><a href="{{asset('fotokambing/'.$kambing->fotokambing)}}" class="btn btn-secondary"><i class="fa fa-file-image-o"></i>LIHAT</a></td>
                 <td><a href="{{url('/investor/perkembangan/'.$kambing->id)}}" class="btn btn-primary">Perkembangan</a></td>
                 <td>
                   <form action="{{url('/investor/peternak/'.$kambing->id)}}" method="post">

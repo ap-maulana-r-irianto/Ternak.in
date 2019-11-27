@@ -25,7 +25,7 @@ class PagesControllerPeternak extends Controller
     }
 
     public function profil(){
-        $peternak = Peternak::where('id',{{Auth::user()->id}})->first();
+        $peternak = Peternak::where('id',"Auth::user()->id")->first();
     	return view('peternak.profil_peternak', ['peternak' => $peternak]);
     }
 }

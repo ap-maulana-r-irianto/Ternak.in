@@ -16,7 +16,7 @@ class Profil_Peternak extends Controller
     public function index()
     {
         //
-        $peternak = Peternak::where('id', {{Auth::user()->id}})->first();
+        $peternak = Peternak::where('id', "Auth::user()->id")->first();
         return view('peternak.profil_peternak', ['peternak' => $peternak]);
     }
 

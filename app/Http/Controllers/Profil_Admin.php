@@ -16,7 +16,7 @@ class Profil_Admin extends Controller
     public function index()
     {
         //
-        $admin = Admin::where('id', {{Auth::user()->id}})->first();
+        $admin = Admin::where('id', "Auth::user()->id")->first();
         return view('admin.profil_admin', ['admin' => $admin]);
     }
 

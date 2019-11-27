@@ -33,18 +33,18 @@
               </div>
           @endif
           
-<!--           <form action="{{url('investor/transaksi/1')}}" method="POST">
+          <form action="{{url('investor/transaksi/1')}}" method="POST">
           @csrf
-          <button type="submit" class="btn btn-primary btn-lg" onclick="confirm('Apakah Anda Yakin?')">Checkout</button>
+          <button type="submit" class="btn btn-primary btn-lg" onclick="confirm('Apakah Anda Yakin?')">Bayar</button>
           </form>
           <br>
- -->
+
                     <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             CHECKOUT
           </button>
           <br>
-          <br>
+          <br> -->
 
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
