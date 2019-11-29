@@ -17,9 +17,9 @@ class Requestjual_InvestorController extends Controller
     public function index()
     {
         //
-        $kambing = DB::table('kambing')->join('peternak','peternak.id','=','kambing.idpeternak')->where('kambing.idinvestor', Auth::user()->id)->where('kambing.statuspersetujuan1',1)->get();
+        $kambing = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idinvestor', Auth::user()->id)->where('kambing.statuspersetujuan1',1)->where('kambing.statuspersetujuan2',0)->get();
         // $kambing = Kambing::where('idpeternak', Auth::user()->id)->where('statuspersetujuan1', 1)->get();
-        return view('peternak.seluruhrequestjual', ['kambing' => $kambing]);
+        return view('investor.seluruhrequestjual_investor', ['kambing' => $kambing]);
     }
 
     /**
@@ -53,7 +53,7 @@ class Requestjual_InvestorController extends Controller
     {
         //
         Kambing::where('id', $id)->update([
-            'statuspersetujuan2' => true
+            'statuspersetujuan2' => 1
         ]);
         return redirect('/investor/requestjual')->with('status','Data Pengajuan Penjualan Kambing Berhasil Disetujui dan Kerja Sama Telah Selesai!');
     }
@@ -91,8 +91,8 @@ class Requestjual_InvestorController extends Controller
     {
         //
         Kambing::where('id', $id)->update([
-            'statuspersetujuan1' => null,
-            'jual'    => null
+            'statuspersetujuan1' => 0,
+            'jual'    => 0
         ]);
         return redirect('/investor/requestjual')->with('status','Data Pengajuan Penjualan Kambing Berhasil Ditolak!');
     }

@@ -21,7 +21,7 @@ class Peternakku_InvestorController extends Controller
         //
         // $kambing = Kambing::where('idinvestor','1')->with('peternak')->get();
         // $peternak = Peternak::where('id', '1')->get();
-        $kambing = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idinvestor', Auth::user()->id)->where('kambing.persetujuan1',1)->where('kambing.persetujuan2',1)->get();
+        $kambing = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idinvestor', Auth::user()->id)->where('kambing.permintaan1',1)->where('kambing.permintaan2',1)->get();
         return view('investor.seluruh_peternakku', ['kambing'=>$kambing]);
     }
 

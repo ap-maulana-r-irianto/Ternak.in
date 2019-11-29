@@ -55,7 +55,7 @@
                 <td>{{$k->nama}}</td>
                 <td>{{$k->jual}}</td>
                 <td>
-                  <a href="{{url('/investor/requestjual/'.$k->id)}}" class="btn btn-primary">SETUJU</a>
+                  <a href="{{url('/investor/requestjual/'.$k->id)}}" class="btn btn-primary" onclick="confirm('Apakah Anda Yakin?')">SETUJU</a>
                   <form class="d-inline-block" action="{{url('/investor/requestjual/'.$k->id)}}" method="POST">
                       @csrf
                       @method('delete')

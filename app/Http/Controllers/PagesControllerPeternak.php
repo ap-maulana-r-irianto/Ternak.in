@@ -19,7 +19,7 @@ class PagesControllerPeternak extends Controller
         $investor = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idpeternak', Auth::user()->id)->get();
         $request  = Kambing::where('idpeternak', Auth::user()->id)->where('statuspersetujuan1', 1)->where('statuspersetujuan2', null)->get();
         $kambing  = Kambing::where('idpeternak', Auth::user()->id)->get();
-    	return view('peternak.dashboard_peternak', ['peternak' => $peternak, 'investor' => $investor, 'admin' => $admin, 'kambing' => $kambing]);
+    	return view('peternak.dashboard_peternak', ['request' => $request, 'investor' => $investor, 'transaksi' => $transaksi, 'kambing' => $kambing]);
     }
 
     public function grafik(){

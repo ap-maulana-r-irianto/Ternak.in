@@ -96,8 +96,8 @@ class Pengajuan_PeternakController extends Controller
     {
         //
         Kambing::where('id', $id)->update([
-            'statuspersetujuan1' => null,
-            'jual'    => null
+            'statuspersetujuan1' => 0,
+            'jual'    => 0
         ]);
         return redirect('/peternak/jual')->with('status','Data Pengajuan Penjualan Kambing Berhasil Dibatalkan!');
     }

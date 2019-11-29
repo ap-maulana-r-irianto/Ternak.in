@@ -54,7 +54,7 @@
               @foreach($kambing as $kambing)
               <tr>
                 <th scope="row">{{$loop->iteration}}</th>
-                <td>{{$kambing->idkamsidebing}}</td>
+                <td>{{$kambing->idkambing}}</td>
                 <td>{{$kambing->jeniskambing}}</td>
                 <td>{{$kambing->tgllahir}}</td>
                 <td>{{$kambing->berat}}</td>

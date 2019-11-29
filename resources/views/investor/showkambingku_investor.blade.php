@@ -64,11 +64,11 @@
                 <td><a href="{{asset('fotokambing/'.$kambing->fotokambing)}}" class="btn btn-secondary"><i class="fa fa-file-image-o"></i>LIHAT</a></td>
                 <td><a href="{{url('/investor/perkembangan/'.$kambing->id)}}" class="btn btn-primary">Perkembangan</a></td>
                 <td>
-                  <form action="{{url('/investor/peternak/'.$kambing->id)}}" method="post">
-                    @csrf
-                    @method('put')
-                    <button type="submit" class="btn btn-danger">Jual</button>
-                  </form>
+                  @if($kambing->statuspersetujuan1 == 1)
+                  <a href="{{url('/investor/requestjual')}}" class="btn btn-danger">Request Jual</a>
+                  @else
+
+                  @endif
                 </td>
               </tr>
               @endforeach
