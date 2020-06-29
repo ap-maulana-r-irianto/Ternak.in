@@ -17,7 +17,7 @@ class Requestjual_InvestorController extends Controller
     public function index()
     {
         //
-        $kambing = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idinvestor', Auth::user()->id)->where('kambing.statuspersetujuan1',1)->where('kambing.statuspersetujuan2',0)->get();
+        $kambing = DB::table('kambing')->join('investor','investor.id','=','kambing.idinvestor')->where('kambing.idinvestor', Auth::user()->id)->where('kambing.statuspersetujuan1',1)->where('kambing.statuspersetujuan2',null)->get();
         // $kambing = Kambing::where('idpeternak', Auth::user()->id)->where('statuspersetujuan1', 1)->get();
         return view('investor.seluruhrequestjual_investor', ['kambing' => $kambing]);
     }

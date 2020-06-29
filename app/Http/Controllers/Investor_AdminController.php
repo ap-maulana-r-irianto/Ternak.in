@@ -46,10 +46,10 @@ class Investor_AdminController extends Controller
             'nama'     => ['required'],
             'alamat'   => ['required'],
             'nohp'     => ['required', 'max:14'],
-            'noktp'    => ['required', 'size:16', 'unique:investor,username'],
-            'username' => ['required', 'size:6'],
-            'password' => ['required', 'size:10'],
-            'email'    => ['required', 'email', 'unique:investor,email'],
+            'noktp'    => ['required', 'size:16'],
+            'username' => ['required', 'max:6'],
+            'password' => ['required', 'max:10'],
+            'email'    => ['required', 'email'],
             'scanktp'  => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
         ]);
 
@@ -114,10 +114,10 @@ class Investor_AdminController extends Controller
             'nama'     => ['required'],
             'alamat'   => ['required'],
             'nohp'     => ['required', 'max:14'],
-            'noktp'    => ['required', 'size:16', 'unique:investor,username'],
-            'username' => ['required', 'size:6'],
-            'password' => ['required', 'size:10'],
-            'email'    => ['required', 'email', 'unique:investor,email'],
+            'noktp'    => ['required', 'size:16'],
+            'username' => ['required', 'max:6'],
+            'password' => ['required', 'max:10'],
+            'email'    => ['required', 'email'],
             'scanktp'  => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
         ]);
 

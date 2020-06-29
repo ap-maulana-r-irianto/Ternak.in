@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Investor;
 
 class Profil_Investor extends Controller
@@ -16,7 +17,7 @@ class Profil_Investor extends Controller
     public function index()
     {
         //
-        $investor = Investor::where('id', "Auth::user()->id")->first();
+        $investor = Investor::where('id', Auth::user()->id)->first();
         return view('investor.profil_investor', ['investor' => $investor]);
     }
 

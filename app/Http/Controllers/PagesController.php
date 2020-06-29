@@ -30,7 +30,7 @@ class PagesController extends Controller
     		Auth::guard('investor')->LoginUsingId($datainvestor[0]['id']);
     		return redirect('investor/dashboard');
     	}else{
-    		return redirect('/');
+    		return redirect('/login')->with('status','Data Kambingku Berhasil Ditambahkan!');
     	}
 
     }
@@ -65,7 +65,7 @@ class PagesController extends Controller
 
         Admin::create($request->all());
 
-        return redirect('login');
+        return redirect('/login')->with('status','Registrasi Berhasil, Silahkan Login!');
     }
     public function storeinvestor(Request $request){
         $request->validate([
@@ -80,7 +80,7 @@ class PagesController extends Controller
 
         Admin::create($request->all());
 
-        return redirect('login');
+        return redirect('/login')->with('status','Registrasi Berhasil, Silahkan Login!');
     }
     public function storepembeli(Request $request){
         $request->validate([
@@ -95,7 +95,7 @@ class PagesController extends Controller
 
         Admin::create($request->all());
 
-        return redirect('login');
+        return redirect('/login')->with('status','Registrasi Berhasil, Silahkan Login!');
     }
     public function storeadmin(Request $request){
         $request->validate([
@@ -110,19 +110,19 @@ class PagesController extends Controller
 
         Admin::create($request->all());
 
-        return redirect('login');
+        return redirect('/login')->with('status','Registrasi Berhasil, Silahkan Login!');
     }
 
     public function logout(){
     	if (Auth::guard('admin')->check()) {
     		Auth::guard('admin')->logout();
-    		return view('login');
+    		return redirect('/login');
     	}elseif (Auth::guard('peternak')->check()) {
     		Auth::guard('peternak')->logout();
-    		return view('login');
+            return redirect('/login');
     	}elseif (Auth::guard('investor')->check()) {
     		Auth::guard('investor')->logout();
-    		return view('login');
+            return redirect('/login');
     	}
 
     

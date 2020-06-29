@@ -37,6 +37,11 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Silahkan login terlebih dahulu</p>
+      @if (session('status'))
+              <div class="alert alert-success">
+                  {{ session('status') }}
+              </div>
+          @endif
 
       <form action="{{url('/masuk')}}" method="post">
         @csrf
@@ -76,7 +81,7 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="">Lupa password</a>
+        <a href="{{url('/login')}}" onclick="alert('Silahkan Hubungi Admin!')">Lupa password</a>
       </p>
       <p class="mb-0">
         <a href="{{url('create/peternak')}}" class="text-center">Daftar Sebagai Peternak</a>

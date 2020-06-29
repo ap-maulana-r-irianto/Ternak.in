@@ -30,11 +30,11 @@
       <p class="register-box-msg">Daftar Akun {{$user}} Baru</p>
       
       @if ($user == 'peternak')
-      <form action="{{url('storepeternak')}}" method="post">
+      <form action="{{url('/store/peternak')}}" method="post">
       @elseif ($user == 'investor')
-      <form action="{{url('storeinvestor')}}" method="post">
+      <form action="{{url('/store/investor')}}" method="post">
       @else
-      <form action="{{url('storepembeli')}}" method="post">
+      <form action="{{url('/store/pembeli')}}" method="post">
       @endif
         @csrf
         <div class="form-group">

@@ -124,7 +124,7 @@
             <div class="text-center" id="tagline">
                 <h1 id="space-sheep">TERNAK.IN</h1>
                 <br>
-                <a href="#apply"><button class="btn-default btn button-reboot-blue">LOGIN</button></a>
+                <a href="{{url('/login')}}"><button class="btn-default btn button-reboot-blue">LOGIN</button></a>
                 <br>
                 <p>Silahkan Login Terlebih Dahulu</p>
             </div>

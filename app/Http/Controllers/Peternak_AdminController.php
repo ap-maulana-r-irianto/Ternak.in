@@ -72,11 +72,11 @@ class Peternak_AdminController extends Controller
             'nama'             => ['required'],
             'alamat'           => ['required'],
             'nohp'             => ['required', 'max:14'],
-            'noktp'            => ['required', 'size:16', 'unique:peternak,noktp'],
+            'noktp'            => ['required', 'size:16'],
             'alamatpeternakan' => ['required'],
-            'username'         => ['required', 'size:6'],
-            'password'         => ['required', 'size:10'],
-            'email'            => ['required', 'email', 'unique:peternak,email'],
+            'username'         => ['required', 'max:6'],
+            'password'         => ['required', 'max:10'],
+            'email'            => ['required', 'email'],
             'scanktp'          => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
         ]);
 
@@ -144,8 +144,8 @@ class Peternak_AdminController extends Controller
             'nohp'             => ['required', 'max:14'],
             'noktp'            => ['required', 'size:16', 'unique:peternak,noktp'],
             'alamatpeternakan' => ['required'],
-            'username'         => ['required', 'size:6'],
-            'password'         => ['required', 'size:10'],
+            'username'         => ['required', 'max:6'],
+            'password'         => ['required', 'max:10'],
             'email'            => ['required', 'email', 'unique:peternak,email'],
             'scanktp'          => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
         ]);

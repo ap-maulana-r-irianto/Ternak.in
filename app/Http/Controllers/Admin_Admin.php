@@ -46,8 +46,8 @@ class Admin_Admin extends Controller
             'alamat'           => ['required'],
             'nohp'             => ['required', 'max:14'],
             'noktp'            => ['required', 'size:16', 'unique:admin,noktp'],
-            'username'         => ['required', 'size:6'],
-            'password'         => ['required', 'size:10'],
+            'username'         => ['required', 'max:6'],
+            'password'         => ['required', 'max:10'],
             'email'            => ['required', 'email', 'unique:admin,email'],
             'scanktp'          => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
         ]);
@@ -113,10 +113,10 @@ class Admin_Admin extends Controller
             'nama'             => ['required'],
             'alamat'           => ['required'],
             'nohp'             => ['required', 'max:14'],
-            'noktp'            => ['required', 'size:16', 'unique:admin,noktp'],
-            'username'         => ['required', 'size:6'],
-            'password'         => ['required', 'size:10'],
-            'email'            => ['required', 'email', 'unique:admin,email'],
+            'noktp'            => ['required', 'size:16'],
+            'username'         => ['required', 'max:6'],
+            'password'         => ['required', 'max:10'],
+            'email'            => ['required', 'email'],
             'scanktp'          => ['required','file','image','mimes:jpeg,png,jpg','max:5000']
         ]);
 
@@ -134,7 +134,7 @@ class Admin_Admin extends Controller
             'email'            => $request->email,
             'scanktp'          => $file->getClientOriginalName()
         ]);
-        return redirect('/admin/peternaadmink')->with('status','Data Admin Berhasil Diubah!');
+        return redirect('/admin/admin')->with('status','Data Admin Berhasil Diubah!');
     }
 
     /**
